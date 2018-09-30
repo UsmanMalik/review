@@ -7,7 +7,7 @@ contract Owned{
 
 	address owner;
 
-	function Owned() public {
+	constructor() public {
 		owner = msg.sender;
 	}
 
@@ -19,5 +19,10 @@ contract Owned{
 	modifier exceptOwner{
 		require(msg.sender != owner);
 		_;
+	}
+
+	function getOwner() public view returns (address){
+
+		return owner;
 	}
 }

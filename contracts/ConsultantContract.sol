@@ -1,9 +1,13 @@
 pragma solidity ^0.4.23;
 
+import "./Owned.sol";
 
-contract ConsultantContract{
+contract ConsultantContract is Owned{
+
+	constructor() public{
+
+	}
 	
-
     struct Consultant {
         string firstName;
         string lastName;
@@ -12,18 +16,14 @@ contract ConsultantContract{
     mapping (address => Consultant) consultants;
     address[] public consultantAccounts;
 
-	function ConsultantContract() public{
-
-	}
-
 	function setConsultant(address _address, string _firstName, string _lastName) public {
 
-		var consultant = consultants[_address];
+		Consultant storage consultant = consultants[_address];
 
 		consultant.firstName = _firstName;
 		consultant.lastName = _lastName;
 
-		consultantAccounts.push(_address) -1;
+		consultantAccounts.push(_address);
 	}
 
 	function getConsultants() view public returns(address[]){
@@ -37,7 +37,7 @@ contract ConsultantContract{
 		return (consultants[_address].firstName, consultants[_address].lastName);
 	}
 
-	function countConsultants() view public returns (uint){
+	function countConsultants() exceptOwner view public returns (uint){
 
 		return consultantAccounts.length;
 	}

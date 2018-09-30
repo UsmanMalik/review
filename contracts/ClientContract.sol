@@ -1,9 +1,13 @@
 pragma solidity ^0.4.23;
 
+import "./Owned.sol";
 
-contract ClientContract{
+contract ClientContract is Owned{
+
+	constructor() public {
+
+	}
 	
-
     struct Client {
         string firstName;
         string lastName;
@@ -15,7 +19,7 @@ contract ClientContract{
 
 	function setClient(address _address, string _firstName, string _lastName, string _company) public {
 
-		var client = clients[_address];
+		Client storage client = clients[_address];
 
 		client.firstName = _firstName;
 		client.lastName = _lastName;
@@ -35,7 +39,7 @@ contract ClientContract{
 		return (clients[_address].firstName, clients[_address].lastName, clients[_address].company);
 	}
 
-	function countClients() view public returns (uint){
+	function countClients() onlyOwner view public returns (uint){
 
 		return clientAccounts.length;
 	}
