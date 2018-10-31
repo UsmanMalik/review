@@ -44,4 +44,37 @@ contract ClientContract is Owned{
 		return clientAccounts.length;
 	}
 
+	// Adding functions to call other contract
+	/*
+		function giveReviewToConsultant(address _addr, uint _rating, string _comment, address _consultantAddress) public{
+
+			ConsultantContract consultantContract = ConsultantContract(_addr);
+
+
+		}
+	*/
+
+
+	function setTestNumberOnReview(address _contractAddr, uint _number) returns(uint){
+
+		ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
+		crc.setTestNumber(_number);
+		return crc.getTestNumber();
+	}
+
+
+	function getTestNumberOnReview(address _contractAddr) returns(uint){
+
+		ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
+		return crc.getTestNumber();
+
+	}
+
+}
+
+
+contract ConsultantReviewContract{
+	
+	function setTestNumber(uint _testNumber);
+	function getTestNumber() returns(uint);
 }
