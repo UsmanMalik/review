@@ -21,6 +21,9 @@
 //     }
 // };
 
+var HDWalletProvider = require("truffle-hdwallet-provider");
+var mnemonic = "brother festival bargain swallow jewel merit gate swallow travel balcony shine club";
+
 
 module.exports = {
   networks: {

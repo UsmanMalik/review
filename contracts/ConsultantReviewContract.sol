@@ -3,52 +3,48 @@ pragma solidity ^0.4.23;
 
 contract ConsultantReviewContract{
 	
+    uint public testNumber;
 
-	constructor(){
-	// Basic constructor for the contract
-	}
-
-	uint public testNumber;
-
-	struct Review{
-		uint rating;
-		string comment;
-		address clientAccount;
-	}
+    struct Review{
+        uint rating;
+        string comment;
+        address clientAccount;
+    }
 
     mapping (address => Review) reviews;
     address[] public consultantAccounts;
     Review[] public reviewsArray;
 
-    // test numbers
-
+    constructor(){
+	// Basic constructor for the contract
+    }
     function setTestNumber(uint _testNumber){
 
-    	testNumber = _testNumber;
+        testNumber = _testNumber;
     }
 
     function getTestNumber()returns(uint){
 
-    	return testNumber;
+        return testNumber;
     }
 
 
     function setReview(address _address,uint _rating, string _comment, address _clientAccount) public {
 
-    	Review storage review = reviews[_address];
+        Review storage review = reviews[_address];
 
-    	review.rating = _rating;
-    	review.comment = _comment;
-    	review.clientAccount = _clientAccount;
+        review.rating = _rating;
+        review.comment = _comment;
+        review.clientAccount = _clientAccount;
 
-    	reviewsArray.push(review) ;
+        reviewsArray.push(review);
 
     }
 
-	function totalReviews() view public returns (uint){
+    function totalReviews() view public returns (uint){
 
-		return reviewsArray.length;
-	}
+        return reviewsArray.length;
+    }
 }
 
 

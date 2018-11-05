@@ -3,12 +3,8 @@ pragma solidity ^0.4.23;
 import "./Owned.sol";
 
 contract ConsultantContract is Owned{
-
-	constructor() public{
-
-	}
 	
-    struct Consultant {
+    struct Consultant { // change string to bytes16
         string firstName;
         string lastName;
     }
@@ -16,30 +12,42 @@ contract ConsultantContract is Owned{
     mapping (address => Consultant) consultants;
     address[] public consultantAccounts;
 
-	function setConsultant(address _address, string _firstName, string _lastName) public {
+    constructor() public{
+    }
 
-		Consultant storage consultant = consultants[_address];
+    function consultantExist(address _address) public view returns(bool){
+        for (uint i=0; i<consultantAccounts.length; i++) {
+            if (consultantAccounts[i] == _address)
+               return true;
+        }
 
-		consultant.firstName = _firstName;
-		consultant.lastName = _lastName;
+        return false;
+    }
 
-		consultantAccounts.push(_address);
-	}
+    function setConsultant(address _address, string _firstName, string _lastName) public {
 
-	function getConsultants() view public returns(address[]){
+        Consultant storage consultant = consultants[_address];
 
-		return consultantAccounts;
-	}
+        consultant.firstName = _firstName;
+        consultant.lastName = _lastName;
+
+        consultantAccounts.push(_address);
+    }
+
+    function getConsultants() view public returns(address[]){
+
+        return consultantAccounts;
+    }
 
 
-	function getConsultant(address _address) view public returns (string, string){
+    function getConsultant(address _address) view public returns (string, string){
 
-		return (consultants[_address].firstName, consultants[_address].lastName);
-	}
+        return (consultants[_address].firstName, consultants[_address].lastName);
+    }
 
-	function countConsultants() exceptOwner view public returns (uint){
+    function countConsultants() onlyOwner view public returns (uint){
 
-		return consultantAccounts.length;
-	}
+        return consultantAccounts.length;
+    }
 
 }

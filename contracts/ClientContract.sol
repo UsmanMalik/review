@@ -4,45 +4,54 @@ import "./Owned.sol";
 
 contract ClientContract is Owned{
 
-	constructor() public {
-
-	}
-	
     struct Client {
         string firstName;
-        string lastName;
+        string lastName; // change string to bytes16
         string company;
     }
 
     mapping (address => Client) clients;
     address[] public clientAccounts;
 
-	function setClient(address _address, string _firstName, string _lastName, string _company) public {
+    constructor() public { //Default constructor
 
-		Client storage client = clients[_address];
+    }
 
-		client.firstName = _firstName;
-		client.lastName = _lastName;
-		client.company = _company;
+    function clientExist(address _address) public view returns(bool){
+        for (uint i=0; i<clientAccounts.length; i++) {
+            if (clientAccounts[i] == _address)
+               return true;
+        }
 
-		clientAccounts.push(_address) -1;
-	}
+        return false;
+    }
+	
+    function setClient(address _address, string _firstName, string _lastName, string _company) public {
 
-	function getClients() view public returns(address[]){
+        Client storage client = clients[_address];
 
-		return clientAccounts;
-	}
+        client.firstName = _firstName;
+        client.lastName = _lastName;
+        client.company = _company;
+
+        clientAccounts.push(_address) -1;
+    }
+
+    function getClients() view public returns(address[]){
+
+        return clientAccounts;
+    }
 
 
-	function getClient(address _address) view public returns (string, string, string){
+    function getClient(address _address) view public returns (string, string, string){
 
-		return (clients[_address].firstName, clients[_address].lastName, clients[_address].company);
-	}
+        return (clients[_address].firstName, clients[_address].lastName, clients[_address].company);
+    }
 
-	function countClients() onlyOwner view public returns (uint){
+    function countClients() onlyOwner view public returns (uint){
 
-		return clientAccounts.length;
-	}
+        return clientAccounts.length;
+    }
 
 	// Adding functions to call other contract
 	/*
