@@ -9,10 +9,11 @@ contract ConsultantReviewContract{
         uint rating;
         string comment;
         address clientAccount;
+        address consultantAccount;
     }
 
     mapping (address => Review) reviews;
-    address[] public consultantAccounts;
+    address[] public clientAccounts;
     Review[] public reviewsArray;
 
     constructor(){
@@ -23,27 +24,45 @@ contract ConsultantReviewContract{
         testNumber = _testNumber;
     }
 
-    function getTestNumber()returns(uint){
+    function getTestNumber() public view returns(uint){
 
         return testNumber;
     }
 
 
-    function setReview(address _address,uint _rating, string _comment, address _clientAccount) public {
+    function setReview(uint _rating, string _comment, address _consultantAccount) public {
 
-        Review storage review = reviews[_address];
+        Review storage review = reviews[msg.sender];
 
         review.rating = _rating;
         review.comment = _comment;
-        review.clientAccount = _clientAccount;
+        review.consultantAccount = _consultantAccount;
+        review.clientAccount = msg.sender;
 
         reviewsArray.push(review);
+        clientAccounts.push(msg.sender);
 
     }
 
-    function totalReviews() view public returns (uint){
+    // Need to have multiple reviews retrivals 
+    // 1) client's review
+    // 2) client with specific consultant review 
+    // 3) All reviews
+
+    function getReview() public view returns(uint, string, address, address){
+        
+        return(reviewsArray[0].rating, reviewsArray[0].comment, reviewsArray[0].clientAccount, reviewsArray[0].consultantAccount);
+    }
+
+    function totalReviews() public view returns (uint){
 
         return reviewsArray.length;
+    }
+
+    function getClientAccounts() public view returns (address[]){
+
+        return clientAccounts;
+
     }
 }
 

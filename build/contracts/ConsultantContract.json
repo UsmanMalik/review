@@ -143,14 +143,14 @@
     "absolutePath": "/Users/usman/Documents/blockchain/review/contracts/ConsultantContract.sol",
     "exportedSymbols": {
       "ConsultantContract": [
-        326
+        411
       ]
     },
-    "id": 327,
+    "id": 412,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 201,
+        "id": 286,
         "literals": [
           "solidity",
           "^",
@@ -163,10 +163,10 @@
       {
         "absolutePath": "/Users/usman/Documents/blockchain/review/contracts/Owned.sol",
         "file": "./Owned.sol",
-        "id": 202,
+        "id": 287,
         "nodeType": "ImportDirective",
-        "scope": 327,
-        "sourceUnit": 523,
+        "scope": 412,
+        "sourceUnit": 662,
         "src": "26:21:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -177,45 +177,45 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 203,
+              "id": 288,
               "name": "Owned",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 522,
+              "referencedDeclaration": 661,
               "src": "80:5:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Owned_$522",
+                "typeIdentifier": "t_contract$_Owned_$661",
                 "typeString": "contract Owned"
               }
             },
-            "id": 204,
+            "id": 289,
             "nodeType": "InheritanceSpecifier",
             "src": "80:5:1"
           }
         ],
         "contractDependencies": [
-          522
+          661
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 326,
+        "id": 411,
         "linearizedBaseContracts": [
-          326,
-          522
+          411,
+          661
         ],
         "name": "ConsultantContract",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "ConsultantContract.Consultant",
-            "id": 209,
+            "id": 294,
             "members": [
               {
                 "constant": false,
-                "id": 206,
+                "id": 291,
                 "name": "firstName",
                 "nodeType": "VariableDeclaration",
-                "scope": 209,
+                "scope": 294,
                 "src": "149:16:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -224,7 +224,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 205,
+                  "id": 290,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "149:6:1",
@@ -238,10 +238,10 @@
               },
               {
                 "constant": false,
-                "id": 208,
+                "id": 293,
                 "name": "lastName",
                 "nodeType": "VariableDeclaration",
-                "scope": 209,
+                "scope": 294,
                 "src": "175:15:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -250,7 +250,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 207,
+                  "id": 292,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "175:6:1",
@@ -265,27 +265,27 @@
             ],
             "name": "Consultant",
             "nodeType": "StructDefinition",
-            "scope": 326,
+            "scope": 411,
             "src": "93:104:1",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 213,
+            "id": 298,
             "name": "consultants",
             "nodeType": "VariableDeclaration",
-            "scope": 326,
+            "scope": 411,
             "src": "203:43:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$209_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$294_storage_$",
               "typeString": "mapping(address => struct ConsultantContract.Consultant)"
             },
             "typeName": {
-              "id": 212,
+              "id": 297,
               "keyType": {
-                "id": 210,
+                "id": 295,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "212:7:1",
@@ -297,18 +297,18 @@
               "nodeType": "Mapping",
               "src": "203:31:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$209_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$294_storage_$",
                 "typeString": "mapping(address => struct ConsultantContract.Consultant)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 211,
+                "id": 296,
                 "name": "Consultant",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 209,
+                "referencedDeclaration": 294,
                 "src": "223:10:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Consultant_$209_storage_ptr",
+                  "typeIdentifier": "t_struct$_Consultant_$294_storage_ptr",
                   "typeString": "struct ConsultantContract.Consultant"
                 }
               }
@@ -318,10 +318,10 @@
           },
           {
             "constant": false,
-            "id": 216,
+            "id": 301,
             "name": "consultantAccounts",
             "nodeType": "VariableDeclaration",
-            "scope": 326,
+            "scope": 411,
             "src": "252:35:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -331,7 +331,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 214,
+                "id": 299,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "252:7:1",
@@ -340,7 +340,7 @@
                   "typeString": "address"
                 }
               },
-              "id": 215,
+              "id": 300,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "252:9:1",
@@ -354,13 +354,13 @@
           },
           {
             "body": {
-              "id": 219,
+              "id": 304,
               "nodeType": "Block",
               "src": "314:7:1",
               "statements": []
             },
             "documentation": null,
-            "id": 220,
+            "id": 305,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -368,19 +368,19 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 217,
+              "id": 302,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "305:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 218,
+              "id": 303,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "314:0:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "294:27:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -388,13 +388,13 @@
           },
           {
             "body": {
-              "id": 250,
+              "id": 335,
               "nodeType": "Block",
               "src": "395:178:1",
               "statements": [
                 {
                   "body": {
-                    "id": 246,
+                    "id": 331,
                     "nodeType": "Block",
                     "src": "454:90:1",
                     "statements": [
@@ -405,7 +405,7 @@
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           },
-                          "id": 242,
+                          "id": 327,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -414,25 +414,25 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 238,
+                              "id": 323,
                               "name": "consultantAccounts",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 216,
+                              "referencedDeclaration": 301,
                               "src": "472:18:1",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_array$_t_address_$dyn_storage",
                                 "typeString": "address[] storage ref"
                               }
                             },
-                            "id": 240,
+                            "id": 325,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 239,
+                              "id": 324,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 228,
+                              "referencedDeclaration": 313,
                               "src": "491:1:1",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -454,11 +454,11 @@
                           "operator": "==",
                           "rightExpression": {
                             "argumentTypes": null,
-                            "id": 241,
+                            "id": 326,
                             "name": "_address",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 222,
+                            "referencedDeclaration": 307,
                             "src": "497:8:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -472,14 +472,14 @@
                           }
                         },
                         "falseBody": null,
-                        "id": 245,
+                        "id": 330,
                         "nodeType": "IfStatement",
                         "src": "468:65:1",
                         "trueBody": {
                           "expression": {
                             "argumentTypes": null,
                             "hexValue": "74727565",
-                            "id": 243,
+                            "id": 328,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -494,8 +494,8 @@
                             },
                             "value": "true"
                           },
-                          "functionReturnParameters": 226,
-                          "id": 244,
+                          "functionReturnParameters": 311,
+                          "id": 329,
                           "nodeType": "Return",
                           "src": "522:11:1"
                         }
@@ -508,18 +508,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 234,
+                    "id": 319,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 231,
+                      "id": 316,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 228,
+                      "referencedDeclaration": 313,
                       "src": "420:1:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -532,18 +532,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 232,
+                        "id": 317,
                         "name": "consultantAccounts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 216,
+                        "referencedDeclaration": 301,
                         "src": "422:18:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 233,
+                      "id": 318,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -563,18 +563,18 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 247,
+                  "id": 332,
                   "initializationExpression": {
                     "assignments": [
-                      228
+                      313
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 228,
+                        "id": 313,
                         "name": "i",
                         "nodeType": "VariableDeclaration",
-                        "scope": 251,
+                        "scope": 336,
                         "src": "410:6:1",
                         "stateVariable": false,
                         "storageLocation": "default",
@@ -583,7 +583,7 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 227,
+                          "id": 312,
                           "name": "uint",
                           "nodeType": "ElementaryTypeName",
                           "src": "410:4:1",
@@ -596,11 +596,11 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 230,
+                    "id": 315,
                     "initialValue": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 229,
+                      "id": 314,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -621,7 +621,7 @@
                   "loopExpression": {
                     "expression": {
                       "argumentTypes": null,
-                      "id": 236,
+                      "id": 321,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -632,11 +632,11 @@
                       "src": "449:3:1",
                       "subExpression": {
                         "argumentTypes": null,
-                        "id": 235,
+                        "id": 320,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 228,
+                        "referencedDeclaration": 313,
                         "src": "449:1:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -648,7 +648,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 237,
+                    "id": 322,
                     "nodeType": "ExpressionStatement",
                     "src": "449:3:1"
                   },
@@ -659,7 +659,7 @@
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "66616c7365",
-                    "id": 248,
+                    "id": 333,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -674,15 +674,15 @@
                     },
                     "value": "false"
                   },
-                  "functionReturnParameters": 226,
-                  "id": 249,
+                  "functionReturnParameters": 311,
+                  "id": 334,
                   "nodeType": "Return",
                   "src": "554:12:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 251,
+            "id": 336,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -690,15 +690,15 @@
             "name": "consultantExist",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 223,
+              "id": 308,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 222,
+                  "id": 307,
                   "name": "_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 251,
+                  "scope": 336,
                   "src": "352:16:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -707,7 +707,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 221,
+                    "id": 306,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "352:7:1",
@@ -724,15 +724,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 226,
+              "id": 311,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 225,
+                  "id": 310,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 251,
+                  "scope": 336,
                   "src": "390:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -741,7 +741,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 224,
+                    "id": 309,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "390:4:1",
@@ -756,7 +756,7 @@
               ],
               "src": "389:6:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "327:246:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -764,37 +764,37 @@
           },
           {
             "body": {
-              "id": 284,
+              "id": 369,
               "nodeType": "Block",
               "src": "664:200:1",
               "statements": [
                 {
                   "assignments": [
-                    261
+                    346
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 261,
+                      "id": 346,
                       "name": "consultant",
                       "nodeType": "VariableDeclaration",
-                      "scope": 285,
+                      "scope": 370,
                       "src": "675:29:1",
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Consultant_$209_storage_ptr",
+                        "typeIdentifier": "t_struct$_Consultant_$294_storage_ptr",
                         "typeString": "struct ConsultantContract.Consultant"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 260,
+                        "id": 345,
                         "name": "Consultant",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 209,
+                        "referencedDeclaration": 294,
                         "src": "675:10:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Consultant_$209_storage_ptr",
+                          "typeIdentifier": "t_struct$_Consultant_$294_storage_ptr",
                           "typeString": "struct ConsultantContract.Consultant"
                         }
                       },
@@ -802,30 +802,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 265,
+                  "id": 350,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 262,
+                      "id": 347,
                       "name": "consultants",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 213,
+                      "referencedDeclaration": 298,
                       "src": "707:11:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$209_storage_$",
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$294_storage_$",
                         "typeString": "mapping(address => struct ConsultantContract.Consultant storage ref)"
                       }
                     },
-                    "id": 264,
+                    "id": 349,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 263,
+                      "id": 348,
                       "name": "_address",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 253,
+                      "referencedDeclaration": 338,
                       "src": "719:8:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -839,7 +839,7 @@
                     "nodeType": "IndexAccess",
                     "src": "707:21:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Consultant_$209_storage",
+                      "typeIdentifier": "t_struct$_Consultant_$294_storage",
                       "typeString": "struct ConsultantContract.Consultant storage ref"
                     }
                   },
@@ -849,7 +849,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 270,
+                    "id": 355,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -858,25 +858,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 266,
+                        "id": 351,
                         "name": "consultant",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 261,
+                        "referencedDeclaration": 346,
                         "src": "739:10:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Consultant_$209_storage_ptr",
+                          "typeIdentifier": "t_struct$_Consultant_$294_storage_ptr",
                           "typeString": "struct ConsultantContract.Consultant storage pointer"
                         }
                       },
-                      "id": 268,
+                      "id": 353,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "firstName",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 206,
+                      "referencedDeclaration": 291,
                       "src": "739:20:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -887,11 +887,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 269,
+                      "id": 354,
                       "name": "_firstName",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 255,
+                      "referencedDeclaration": 340,
                       "src": "762:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -904,14 +904,14 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 271,
+                  "id": 356,
                   "nodeType": "ExpressionStatement",
                   "src": "739:33:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 276,
+                    "id": 361,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -920,25 +920,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 272,
+                        "id": 357,
                         "name": "consultant",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 261,
+                        "referencedDeclaration": 346,
                         "src": "782:10:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Consultant_$209_storage_ptr",
+                          "typeIdentifier": "t_struct$_Consultant_$294_storage_ptr",
                           "typeString": "struct ConsultantContract.Consultant storage pointer"
                         }
                       },
-                      "id": 274,
+                      "id": 359,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "lastName",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 208,
+                      "referencedDeclaration": 293,
                       "src": "782:19:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -949,11 +949,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 275,
+                      "id": 360,
                       "name": "_lastName",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 257,
+                      "referencedDeclaration": 342,
                       "src": "804:9:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -966,7 +966,7 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 277,
+                  "id": 362,
                   "nodeType": "ExpressionStatement",
                   "src": "782:31:1"
                 },
@@ -976,11 +976,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 281,
+                        "id": 366,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 253,
+                        "referencedDeclaration": 338,
                         "src": "848:8:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -997,18 +997,18 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 278,
+                        "id": 363,
                         "name": "consultantAccounts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 216,
+                        "referencedDeclaration": 301,
                         "src": "824:18:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 280,
+                      "id": 365,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1022,7 +1022,7 @@
                         "typeString": "function (address) returns (uint256)"
                       }
                     },
-                    "id": 282,
+                    "id": 367,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1036,14 +1036,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 283,
+                  "id": 368,
                   "nodeType": "ExpressionStatement",
                   "src": "824:33:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 285,
+            "id": 370,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1051,15 +1051,15 @@
             "name": "setConsultant",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 258,
+              "id": 343,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 253,
+                  "id": 338,
                   "name": "_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 285,
+                  "scope": 370,
                   "src": "602:16:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1068,7 +1068,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 252,
+                    "id": 337,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "602:7:1",
@@ -1082,10 +1082,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 255,
+                  "id": 340,
                   "name": "_firstName",
                   "nodeType": "VariableDeclaration",
-                  "scope": 285,
+                  "scope": 370,
                   "src": "620:17:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1094,7 +1094,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 254,
+                    "id": 339,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "620:6:1",
@@ -1108,10 +1108,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 257,
+                  "id": 342,
                   "name": "_lastName",
                   "nodeType": "VariableDeclaration",
-                  "scope": 285,
+                  "scope": 370,
                   "src": "639:16:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1120,7 +1120,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 256,
+                    "id": 341,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "639:6:1",
@@ -1137,12 +1137,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 259,
+              "id": 344,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "664:0:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "579:285:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1150,33 +1150,33 @@
           },
           {
             "body": {
-              "id": 293,
+              "id": 378,
               "nodeType": "Block",
               "src": "926:43:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 291,
+                    "id": 376,
                     "name": "consultantAccounts",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 216,
+                    "referencedDeclaration": 301,
                     "src": "944:18:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage",
                       "typeString": "address[] storage ref"
                     }
                   },
-                  "functionReturnParameters": 290,
-                  "id": 292,
+                  "functionReturnParameters": 375,
+                  "id": 377,
                   "nodeType": "Return",
                   "src": "937:25:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 294,
+            "id": 379,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1184,22 +1184,22 @@
             "name": "getConsultants",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 286,
+              "id": 371,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "893:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 290,
+              "id": 375,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 289,
+                  "id": 374,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 294,
+                  "scope": 379,
                   "src": "916:9:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1209,7 +1209,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 287,
+                      "id": 372,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "916:7:1",
@@ -1218,7 +1218,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 288,
+                    "id": 373,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "916:9:1",
@@ -1233,7 +1233,7 @@
               ],
               "src": "915:11:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "870:99:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -1241,7 +1241,7 @@
           },
           {
             "body": {
-              "id": 313,
+              "id": 398,
               "nodeType": "Block",
               "src": "1053:90:1",
               "statements": [
@@ -1255,25 +1255,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 303,
+                            "id": 388,
                             "name": "consultants",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 213,
+                            "referencedDeclaration": 298,
                             "src": "1072:11:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$209_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$294_storage_$",
                               "typeString": "mapping(address => struct ConsultantContract.Consultant storage ref)"
                             }
                           },
-                          "id": 305,
+                          "id": 390,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 304,
+                            "id": 389,
                             "name": "_address",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 296,
+                            "referencedDeclaration": 381,
                             "src": "1084:8:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1287,18 +1287,18 @@
                           "nodeType": "IndexAccess",
                           "src": "1072:21:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Consultant_$209_storage",
+                            "typeIdentifier": "t_struct$_Consultant_$294_storage",
                             "typeString": "struct ConsultantContract.Consultant storage ref"
                           }
                         },
-                        "id": 306,
+                        "id": 391,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "firstName",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 206,
+                        "referencedDeclaration": 291,
                         "src": "1072:31:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
@@ -1311,25 +1311,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 307,
+                            "id": 392,
                             "name": "consultants",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 213,
+                            "referencedDeclaration": 298,
                             "src": "1105:11:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$209_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$294_storage_$",
                               "typeString": "mapping(address => struct ConsultantContract.Consultant storage ref)"
                             }
                           },
-                          "id": 309,
+                          "id": 394,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 308,
+                            "id": 393,
                             "name": "_address",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 296,
+                            "referencedDeclaration": 381,
                             "src": "1117:8:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1343,18 +1343,18 @@
                           "nodeType": "IndexAccess",
                           "src": "1105:21:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Consultant_$209_storage",
+                            "typeIdentifier": "t_struct$_Consultant_$294_storage",
                             "typeString": "struct ConsultantContract.Consultant storage ref"
                           }
                         },
-                        "id": 310,
+                        "id": 395,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "lastName",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 208,
+                        "referencedDeclaration": 293,
                         "src": "1105:30:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
@@ -1362,7 +1362,7 @@
                         }
                       }
                     ],
-                    "id": 311,
+                    "id": 396,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -1375,15 +1375,15 @@
                       "typeString": "tuple(string storage ref,string storage ref)"
                     }
                   },
-                  "functionReturnParameters": 302,
-                  "id": 312,
+                  "functionReturnParameters": 387,
+                  "id": 397,
                   "nodeType": "Return",
                   "src": "1064:72:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 314,
+            "id": 399,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1391,15 +1391,15 @@
             "name": "getConsultant",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 297,
+              "id": 382,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 296,
+                  "id": 381,
                   "name": "_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 314,
+                  "scope": 399,
                   "src": "999:16:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1408,7 +1408,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 295,
+                    "id": 380,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "999:7:1",
@@ -1425,15 +1425,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 302,
+              "id": 387,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 299,
+                  "id": 384,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 314,
+                  "scope": 399,
                   "src": "1038:6:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1442,7 +1442,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 298,
+                    "id": 383,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1038:6:1",
@@ -1456,10 +1456,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 301,
+                  "id": 386,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 314,
+                  "scope": 399,
                   "src": "1046:6:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1468,7 +1468,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 300,
+                    "id": 385,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1046:6:1",
@@ -1483,7 +1483,7 @@
               ],
               "src": "1037:16:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "976:167:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -1491,7 +1491,7 @@
           },
           {
             "body": {
-              "id": 324,
+              "id": 409,
               "nodeType": "Block",
               "src": "1213:50:1",
               "statements": [
@@ -1500,18 +1500,18 @@
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 321,
+                      "id": 406,
                       "name": "consultantAccounts",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 216,
+                      "referencedDeclaration": 301,
                       "src": "1231:18:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_address_$dyn_storage",
                         "typeString": "address[] storage ref"
                       }
                     },
-                    "id": 322,
+                    "id": 407,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -1525,29 +1525,29 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 320,
-                  "id": 323,
+                  "functionReturnParameters": 405,
+                  "id": 408,
                   "nodeType": "Return",
                   "src": "1224:32:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 325,
+            "id": 410,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 317,
+                "id": 402,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 316,
+                  "id": 401,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 502,
+                  "referencedDeclaration": 641,
                   "src": "1177:9:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1561,22 +1561,22 @@
             "name": "countConsultants",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 315,
+              "id": 400,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1174:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 320,
+              "id": 405,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 319,
+                  "id": 404,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 325,
+                  "scope": 410,
                   "src": "1208:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1585,7 +1585,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 318,
+                    "id": 403,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1208:4:1",
@@ -1600,14 +1600,14 @@
               ],
               "src": "1207:6:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "1149:114:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 327,
+        "scope": 412,
         "src": "49:1217:1"
       }
     ],
@@ -1617,14 +1617,14 @@
     "absolutePath": "/Users/usman/Documents/blockchain/review/contracts/ConsultantContract.sol",
     "exportedSymbols": {
       "ConsultantContract": [
-        326
+        411
       ]
     },
-    "id": 327,
+    "id": 412,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 201,
+        "id": 286,
         "literals": [
           "solidity",
           "^",
@@ -1637,10 +1637,10 @@
       {
         "absolutePath": "/Users/usman/Documents/blockchain/review/contracts/Owned.sol",
         "file": "./Owned.sol",
-        "id": 202,
+        "id": 287,
         "nodeType": "ImportDirective",
-        "scope": 327,
-        "sourceUnit": 523,
+        "scope": 412,
+        "sourceUnit": 662,
         "src": "26:21:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1651,45 +1651,45 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 203,
+              "id": 288,
               "name": "Owned",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 522,
+              "referencedDeclaration": 661,
               "src": "80:5:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Owned_$522",
+                "typeIdentifier": "t_contract$_Owned_$661",
                 "typeString": "contract Owned"
               }
             },
-            "id": 204,
+            "id": 289,
             "nodeType": "InheritanceSpecifier",
             "src": "80:5:1"
           }
         ],
         "contractDependencies": [
-          522
+          661
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 326,
+        "id": 411,
         "linearizedBaseContracts": [
-          326,
-          522
+          411,
+          661
         ],
         "name": "ConsultantContract",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "ConsultantContract.Consultant",
-            "id": 209,
+            "id": 294,
             "members": [
               {
                 "constant": false,
-                "id": 206,
+                "id": 291,
                 "name": "firstName",
                 "nodeType": "VariableDeclaration",
-                "scope": 209,
+                "scope": 294,
                 "src": "149:16:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1698,7 +1698,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 205,
+                  "id": 290,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "149:6:1",
@@ -1712,10 +1712,10 @@
               },
               {
                 "constant": false,
-                "id": 208,
+                "id": 293,
                 "name": "lastName",
                 "nodeType": "VariableDeclaration",
-                "scope": 209,
+                "scope": 294,
                 "src": "175:15:1",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1724,7 +1724,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 207,
+                  "id": 292,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "175:6:1",
@@ -1739,27 +1739,27 @@
             ],
             "name": "Consultant",
             "nodeType": "StructDefinition",
-            "scope": 326,
+            "scope": 411,
             "src": "93:104:1",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 213,
+            "id": 298,
             "name": "consultants",
             "nodeType": "VariableDeclaration",
-            "scope": 326,
+            "scope": 411,
             "src": "203:43:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$209_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$294_storage_$",
               "typeString": "mapping(address => struct ConsultantContract.Consultant)"
             },
             "typeName": {
-              "id": 212,
+              "id": 297,
               "keyType": {
-                "id": 210,
+                "id": 295,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "212:7:1",
@@ -1771,18 +1771,18 @@
               "nodeType": "Mapping",
               "src": "203:31:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$209_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$294_storage_$",
                 "typeString": "mapping(address => struct ConsultantContract.Consultant)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 211,
+                "id": 296,
                 "name": "Consultant",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 209,
+                "referencedDeclaration": 294,
                 "src": "223:10:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Consultant_$209_storage_ptr",
+                  "typeIdentifier": "t_struct$_Consultant_$294_storage_ptr",
                   "typeString": "struct ConsultantContract.Consultant"
                 }
               }
@@ -1792,10 +1792,10 @@
           },
           {
             "constant": false,
-            "id": 216,
+            "id": 301,
             "name": "consultantAccounts",
             "nodeType": "VariableDeclaration",
-            "scope": 326,
+            "scope": 411,
             "src": "252:35:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1805,7 +1805,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 214,
+                "id": 299,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "252:7:1",
@@ -1814,7 +1814,7 @@
                   "typeString": "address"
                 }
               },
-              "id": 215,
+              "id": 300,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "252:9:1",
@@ -1828,13 +1828,13 @@
           },
           {
             "body": {
-              "id": 219,
+              "id": 304,
               "nodeType": "Block",
               "src": "314:7:1",
               "statements": []
             },
             "documentation": null,
-            "id": 220,
+            "id": 305,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -1842,19 +1842,19 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 217,
+              "id": 302,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "305:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 218,
+              "id": 303,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "314:0:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "294:27:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1862,13 +1862,13 @@
           },
           {
             "body": {
-              "id": 250,
+              "id": 335,
               "nodeType": "Block",
               "src": "395:178:1",
               "statements": [
                 {
                   "body": {
-                    "id": 246,
+                    "id": 331,
                     "nodeType": "Block",
                     "src": "454:90:1",
                     "statements": [
@@ -1879,7 +1879,7 @@
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           },
-                          "id": 242,
+                          "id": 327,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1888,25 +1888,25 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 238,
+                              "id": 323,
                               "name": "consultantAccounts",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 216,
+                              "referencedDeclaration": 301,
                               "src": "472:18:1",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_array$_t_address_$dyn_storage",
                                 "typeString": "address[] storage ref"
                               }
                             },
-                            "id": 240,
+                            "id": 325,
                             "indexExpression": {
                               "argumentTypes": null,
-                              "id": 239,
+                              "id": 324,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 228,
+                              "referencedDeclaration": 313,
                               "src": "491:1:1",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -1928,11 +1928,11 @@
                           "operator": "==",
                           "rightExpression": {
                             "argumentTypes": null,
-                            "id": 241,
+                            "id": 326,
                             "name": "_address",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 222,
+                            "referencedDeclaration": 307,
                             "src": "497:8:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -1946,14 +1946,14 @@
                           }
                         },
                         "falseBody": null,
-                        "id": 245,
+                        "id": 330,
                         "nodeType": "IfStatement",
                         "src": "468:65:1",
                         "trueBody": {
                           "expression": {
                             "argumentTypes": null,
                             "hexValue": "74727565",
-                            "id": 243,
+                            "id": 328,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1968,8 +1968,8 @@
                             },
                             "value": "true"
                           },
-                          "functionReturnParameters": 226,
-                          "id": 244,
+                          "functionReturnParameters": 311,
+                          "id": 329,
                           "nodeType": "Return",
                           "src": "522:11:1"
                         }
@@ -1982,18 +1982,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 234,
+                    "id": 319,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "argumentTypes": null,
-                      "id": 231,
+                      "id": 316,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 228,
+                      "referencedDeclaration": 313,
                       "src": "420:1:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2006,18 +2006,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 232,
+                        "id": 317,
                         "name": "consultantAccounts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 216,
+                        "referencedDeclaration": 301,
                         "src": "422:18:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 233,
+                      "id": 318,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -2037,18 +2037,18 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 247,
+                  "id": 332,
                   "initializationExpression": {
                     "assignments": [
-                      228
+                      313
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 228,
+                        "id": 313,
                         "name": "i",
                         "nodeType": "VariableDeclaration",
-                        "scope": 251,
+                        "scope": 336,
                         "src": "410:6:1",
                         "stateVariable": false,
                         "storageLocation": "default",
@@ -2057,7 +2057,7 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 227,
+                          "id": 312,
                           "name": "uint",
                           "nodeType": "ElementaryTypeName",
                           "src": "410:4:1",
@@ -2070,11 +2070,11 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 230,
+                    "id": 315,
                     "initialValue": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 229,
+                      "id": 314,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2095,7 +2095,7 @@
                   "loopExpression": {
                     "expression": {
                       "argumentTypes": null,
-                      "id": 236,
+                      "id": 321,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2106,11 +2106,11 @@
                       "src": "449:3:1",
                       "subExpression": {
                         "argumentTypes": null,
-                        "id": 235,
+                        "id": 320,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 228,
+                        "referencedDeclaration": 313,
                         "src": "449:1:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2122,7 +2122,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 237,
+                    "id": 322,
                     "nodeType": "ExpressionStatement",
                     "src": "449:3:1"
                   },
@@ -2133,7 +2133,7 @@
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "66616c7365",
-                    "id": 248,
+                    "id": 333,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -2148,15 +2148,15 @@
                     },
                     "value": "false"
                   },
-                  "functionReturnParameters": 226,
-                  "id": 249,
+                  "functionReturnParameters": 311,
+                  "id": 334,
                   "nodeType": "Return",
                   "src": "554:12:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 251,
+            "id": 336,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2164,15 +2164,15 @@
             "name": "consultantExist",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 223,
+              "id": 308,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 222,
+                  "id": 307,
                   "name": "_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 251,
+                  "scope": 336,
                   "src": "352:16:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2181,7 +2181,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 221,
+                    "id": 306,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "352:7:1",
@@ -2198,15 +2198,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 226,
+              "id": 311,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 225,
+                  "id": 310,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 251,
+                  "scope": 336,
                   "src": "390:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2215,7 +2215,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 224,
+                    "id": 309,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "390:4:1",
@@ -2230,7 +2230,7 @@
               ],
               "src": "389:6:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "327:246:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -2238,37 +2238,37 @@
           },
           {
             "body": {
-              "id": 284,
+              "id": 369,
               "nodeType": "Block",
               "src": "664:200:1",
               "statements": [
                 {
                   "assignments": [
-                    261
+                    346
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 261,
+                      "id": 346,
                       "name": "consultant",
                       "nodeType": "VariableDeclaration",
-                      "scope": 285,
+                      "scope": 370,
                       "src": "675:29:1",
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Consultant_$209_storage_ptr",
+                        "typeIdentifier": "t_struct$_Consultant_$294_storage_ptr",
                         "typeString": "struct ConsultantContract.Consultant"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 260,
+                        "id": 345,
                         "name": "Consultant",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 209,
+                        "referencedDeclaration": 294,
                         "src": "675:10:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Consultant_$209_storage_ptr",
+                          "typeIdentifier": "t_struct$_Consultant_$294_storage_ptr",
                           "typeString": "struct ConsultantContract.Consultant"
                         }
                       },
@@ -2276,30 +2276,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 265,
+                  "id": 350,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 262,
+                      "id": 347,
                       "name": "consultants",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 213,
+                      "referencedDeclaration": 298,
                       "src": "707:11:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$209_storage_$",
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$294_storage_$",
                         "typeString": "mapping(address => struct ConsultantContract.Consultant storage ref)"
                       }
                     },
-                    "id": 264,
+                    "id": 349,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 263,
+                      "id": 348,
                       "name": "_address",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 253,
+                      "referencedDeclaration": 338,
                       "src": "719:8:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2313,7 +2313,7 @@
                     "nodeType": "IndexAccess",
                     "src": "707:21:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Consultant_$209_storage",
+                      "typeIdentifier": "t_struct$_Consultant_$294_storage",
                       "typeString": "struct ConsultantContract.Consultant storage ref"
                     }
                   },
@@ -2323,7 +2323,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 270,
+                    "id": 355,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2332,25 +2332,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 266,
+                        "id": 351,
                         "name": "consultant",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 261,
+                        "referencedDeclaration": 346,
                         "src": "739:10:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Consultant_$209_storage_ptr",
+                          "typeIdentifier": "t_struct$_Consultant_$294_storage_ptr",
                           "typeString": "struct ConsultantContract.Consultant storage pointer"
                         }
                       },
-                      "id": 268,
+                      "id": 353,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "firstName",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 206,
+                      "referencedDeclaration": 291,
                       "src": "739:20:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -2361,11 +2361,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 269,
+                      "id": 354,
                       "name": "_firstName",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 255,
+                      "referencedDeclaration": 340,
                       "src": "762:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -2378,14 +2378,14 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 271,
+                  "id": 356,
                   "nodeType": "ExpressionStatement",
                   "src": "739:33:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 276,
+                    "id": 361,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2394,25 +2394,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 272,
+                        "id": 357,
                         "name": "consultant",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 261,
+                        "referencedDeclaration": 346,
                         "src": "782:10:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Consultant_$209_storage_ptr",
+                          "typeIdentifier": "t_struct$_Consultant_$294_storage_ptr",
                           "typeString": "struct ConsultantContract.Consultant storage pointer"
                         }
                       },
-                      "id": 274,
+                      "id": 359,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "lastName",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 208,
+                      "referencedDeclaration": 293,
                       "src": "782:19:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -2423,11 +2423,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 275,
+                      "id": 360,
                       "name": "_lastName",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 257,
+                      "referencedDeclaration": 342,
                       "src": "804:9:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -2440,7 +2440,7 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 277,
+                  "id": 362,
                   "nodeType": "ExpressionStatement",
                   "src": "782:31:1"
                 },
@@ -2450,11 +2450,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 281,
+                        "id": 366,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 253,
+                        "referencedDeclaration": 338,
                         "src": "848:8:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2471,18 +2471,18 @@
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 278,
+                        "id": 363,
                         "name": "consultantAccounts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 216,
+                        "referencedDeclaration": 301,
                         "src": "824:18:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
                           "typeString": "address[] storage ref"
                         }
                       },
-                      "id": 280,
+                      "id": 365,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2496,7 +2496,7 @@
                         "typeString": "function (address) returns (uint256)"
                       }
                     },
-                    "id": 282,
+                    "id": 367,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2510,14 +2510,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 283,
+                  "id": 368,
                   "nodeType": "ExpressionStatement",
                   "src": "824:33:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 285,
+            "id": 370,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2525,15 +2525,15 @@
             "name": "setConsultant",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 258,
+              "id": 343,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 253,
+                  "id": 338,
                   "name": "_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 285,
+                  "scope": 370,
                   "src": "602:16:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2542,7 +2542,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 252,
+                    "id": 337,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "602:7:1",
@@ -2556,10 +2556,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 255,
+                  "id": 340,
                   "name": "_firstName",
                   "nodeType": "VariableDeclaration",
-                  "scope": 285,
+                  "scope": 370,
                   "src": "620:17:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2568,7 +2568,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 254,
+                    "id": 339,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "620:6:1",
@@ -2582,10 +2582,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 257,
+                  "id": 342,
                   "name": "_lastName",
                   "nodeType": "VariableDeclaration",
-                  "scope": 285,
+                  "scope": 370,
                   "src": "639:16:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2594,7 +2594,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 256,
+                    "id": 341,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "639:6:1",
@@ -2611,12 +2611,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 259,
+              "id": 344,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "664:0:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "579:285:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2624,33 +2624,33 @@
           },
           {
             "body": {
-              "id": 293,
+              "id": 378,
               "nodeType": "Block",
               "src": "926:43:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 291,
+                    "id": 376,
                     "name": "consultantAccounts",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 216,
+                    "referencedDeclaration": 301,
                     "src": "944:18:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage",
                       "typeString": "address[] storage ref"
                     }
                   },
-                  "functionReturnParameters": 290,
-                  "id": 292,
+                  "functionReturnParameters": 375,
+                  "id": 377,
                   "nodeType": "Return",
                   "src": "937:25:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 294,
+            "id": 379,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2658,22 +2658,22 @@
             "name": "getConsultants",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 286,
+              "id": 371,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "893:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 290,
+              "id": 375,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 289,
+                  "id": 374,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 294,
+                  "scope": 379,
                   "src": "916:9:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2683,7 +2683,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 287,
+                      "id": 372,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "916:7:1",
@@ -2692,7 +2692,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 288,
+                    "id": 373,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "916:9:1",
@@ -2707,7 +2707,7 @@
               ],
               "src": "915:11:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "870:99:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -2715,7 +2715,7 @@
           },
           {
             "body": {
-              "id": 313,
+              "id": 398,
               "nodeType": "Block",
               "src": "1053:90:1",
               "statements": [
@@ -2729,25 +2729,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 303,
+                            "id": 388,
                             "name": "consultants",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 213,
+                            "referencedDeclaration": 298,
                             "src": "1072:11:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$209_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$294_storage_$",
                               "typeString": "mapping(address => struct ConsultantContract.Consultant storage ref)"
                             }
                           },
-                          "id": 305,
+                          "id": 390,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 304,
+                            "id": 389,
                             "name": "_address",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 296,
+                            "referencedDeclaration": 381,
                             "src": "1084:8:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -2761,18 +2761,18 @@
                           "nodeType": "IndexAccess",
                           "src": "1072:21:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Consultant_$209_storage",
+                            "typeIdentifier": "t_struct$_Consultant_$294_storage",
                             "typeString": "struct ConsultantContract.Consultant storage ref"
                           }
                         },
-                        "id": 306,
+                        "id": 391,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "firstName",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 206,
+                        "referencedDeclaration": 291,
                         "src": "1072:31:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
@@ -2785,25 +2785,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 307,
+                            "id": 392,
                             "name": "consultants",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 213,
+                            "referencedDeclaration": 298,
                             "src": "1105:11:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$209_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Consultant_$294_storage_$",
                               "typeString": "mapping(address => struct ConsultantContract.Consultant storage ref)"
                             }
                           },
-                          "id": 309,
+                          "id": 394,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 308,
+                            "id": 393,
                             "name": "_address",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 296,
+                            "referencedDeclaration": 381,
                             "src": "1117:8:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -2817,18 +2817,18 @@
                           "nodeType": "IndexAccess",
                           "src": "1105:21:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Consultant_$209_storage",
+                            "typeIdentifier": "t_struct$_Consultant_$294_storage",
                             "typeString": "struct ConsultantContract.Consultant storage ref"
                           }
                         },
-                        "id": 310,
+                        "id": 395,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "lastName",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 208,
+                        "referencedDeclaration": 293,
                         "src": "1105:30:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
@@ -2836,7 +2836,7 @@
                         }
                       }
                     ],
-                    "id": 311,
+                    "id": 396,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -2849,15 +2849,15 @@
                       "typeString": "tuple(string storage ref,string storage ref)"
                     }
                   },
-                  "functionReturnParameters": 302,
-                  "id": 312,
+                  "functionReturnParameters": 387,
+                  "id": 397,
                   "nodeType": "Return",
                   "src": "1064:72:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 314,
+            "id": 399,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -2865,15 +2865,15 @@
             "name": "getConsultant",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 297,
+              "id": 382,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 296,
+                  "id": 381,
                   "name": "_address",
                   "nodeType": "VariableDeclaration",
-                  "scope": 314,
+                  "scope": 399,
                   "src": "999:16:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2882,7 +2882,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 295,
+                    "id": 380,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "999:7:1",
@@ -2899,15 +2899,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 302,
+              "id": 387,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 299,
+                  "id": 384,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 314,
+                  "scope": 399,
                   "src": "1038:6:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2916,7 +2916,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 298,
+                    "id": 383,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1038:6:1",
@@ -2930,10 +2930,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 301,
+                  "id": 386,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 314,
+                  "scope": 399,
                   "src": "1046:6:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2942,7 +2942,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 300,
+                    "id": 385,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1046:6:1",
@@ -2957,7 +2957,7 @@
               ],
               "src": "1037:16:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "976:167:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -2965,7 +2965,7 @@
           },
           {
             "body": {
-              "id": 324,
+              "id": 409,
               "nodeType": "Block",
               "src": "1213:50:1",
               "statements": [
@@ -2974,18 +2974,18 @@
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 321,
+                      "id": 406,
                       "name": "consultantAccounts",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 216,
+                      "referencedDeclaration": 301,
                       "src": "1231:18:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_address_$dyn_storage",
                         "typeString": "address[] storage ref"
                       }
                     },
-                    "id": 322,
+                    "id": 407,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -2999,29 +2999,29 @@
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 320,
-                  "id": 323,
+                  "functionReturnParameters": 405,
+                  "id": 408,
                   "nodeType": "Return",
                   "src": "1224:32:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 325,
+            "id": 410,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
             "modifiers": [
               {
                 "arguments": null,
-                "id": 317,
+                "id": 402,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 316,
+                  "id": 401,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 502,
+                  "referencedDeclaration": 641,
                   "src": "1177:9:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -3035,22 +3035,22 @@
             "name": "countConsultants",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 315,
+              "id": 400,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1174:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 320,
+              "id": 405,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 319,
+                  "id": 404,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 325,
+                  "scope": 410,
                   "src": "1208:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3059,7 +3059,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 318,
+                    "id": 403,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1208:4:1",
@@ -3074,14 +3074,14 @@
               ],
               "src": "1207:6:1"
             },
-            "scope": 326,
+            "scope": 411,
             "src": "1149:114:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 327,
+        "scope": 412,
         "src": "49:1217:1"
       }
     ],
@@ -3100,5 +3100,5 @@
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-05T06:13:19.250Z"
+  "updatedAt": "2018-11-05T12:16:55.443Z"
 }

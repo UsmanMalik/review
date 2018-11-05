@@ -23,7 +23,7 @@
           "type": "uint256"
         }
       ],
-      "name": "consultantAccounts",
+      "name": "clientAccounts",
       "outputs": [
         {
           "name": "",
@@ -55,6 +55,10 @@
         {
           "name": "clientAccount",
           "type": "address"
+        },
+        {
+          "name": "consultantAccount",
+          "type": "address"
         }
       ],
       "payable": false,
@@ -82,7 +86,7 @@
       "type": "function"
     },
     {
-      "constant": false,
+      "constant": true,
       "inputs": [],
       "name": "getTestNumber",
       "outputs": [
@@ -92,16 +96,12 @@
         }
       ],
       "payable": false,
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "constant": false,
       "inputs": [
-        {
-          "name": "_address",
-          "type": "address"
-        },
         {
           "name": "_rating",
           "type": "uint256"
@@ -111,7 +111,7 @@
           "type": "string"
         },
         {
-          "name": "_clientAccount",
+          "name": "_consultantAccount",
           "type": "address"
         }
       ],
@@ -119,6 +119,32 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getReview",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -134,26 +160,40 @@
       "payable": false,
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getClientAccounts",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b5061075c806100206000396000f300608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630d1972f314610088578063519c9dc6146100b3578063952fa1ef146100e0578063aeb71b071461014d578063c19bfeb714610178578063e23678901461022b578063f0d4779914610256575b600080fd5b34801561009457600080fd5b5061009d610336565b6040518082815260200191505060405180910390f35b3480156100bf57600080fd5b506100de6004803603810190808035906020019092919050505061033c565b005b3480156100ec57600080fd5b5061010b60048036038101908080359060200190929190505050610346565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561015957600080fd5b50610162610384565b6040518082815260200191505060405180910390f35b34801561018457600080fd5b50610229600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061038d565b005b34801561023757600080fd5b50610240610506565b6040518082815260200191505060405180910390f35b34801561026257600080fd5b5061028160048036038101908080359060200190929190505050610513565b60405180848152602001806020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825284818151815260200191508051906020019080838360005b838110156102f95780820151818401526020810190506102de565b50505050905090810190601f1680156103265780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b60005481565b8060008190555050565b60028181548110151561035557fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008054905090565b6000600160008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050838160000181905550828160010190805190602001906103f1929190610604565b50818160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600381908060018154018082558091505090600182039060005260206000209060030201600090919290919091506000820154816000015560018201816001019080546001816001161561010002031660029004610494929190610684565b506002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505050505050565b6000600380549050905090565b60038181548110151561052257fe5b9060005260206000209060030201600091509050806000015490806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156105d45780601f106105a9576101008083540402835291602001916105d4565b820191906000526020600020905b8154815290600101906020018083116105b757829003601f168201915b5050505050908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905083565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061064557805160ff1916838001178555610673565b82800160010185558215610673579182015b82811115610672578251825591602001919060010190610657565b5b509050610680919061070b565b5090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106106bd57805485556106fa565b828001600101855582156106fa57600052602060002091601f016020900482015b828111156106f95782548255916001019190600101906106de565b5b509050610707919061070b565b5090565b61072d91905b80821115610729576000816000905550600101610711565b5090565b905600a165627a7a723058205bb8d8c292805dd7faf76f1930c23a2b4dbe2134dc2d70a05bec139413cb40790029",
-  "deployedBytecode": "0x608060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630d1972f314610088578063519c9dc6146100b3578063952fa1ef146100e0578063aeb71b071461014d578063c19bfeb714610178578063e23678901461022b578063f0d4779914610256575b600080fd5b34801561009457600080fd5b5061009d610336565b6040518082815260200191505060405180910390f35b3480156100bf57600080fd5b506100de6004803603810190808035906020019092919050505061033c565b005b3480156100ec57600080fd5b5061010b60048036038101908080359060200190929190505050610346565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561015957600080fd5b50610162610384565b6040518082815260200191505060405180910390f35b34801561018457600080fd5b50610229600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061038d565b005b34801561023757600080fd5b50610240610506565b6040518082815260200191505060405180910390f35b34801561026257600080fd5b5061028160048036038101908080359060200190929190505050610513565b60405180848152602001806020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825284818151815260200191508051906020019080838360005b838110156102f95780820151818401526020810190506102de565b50505050905090810190601f1680156103265780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b60005481565b8060008190555050565b60028181548110151561035557fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008054905090565b6000600160008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050838160000181905550828160010190805190602001906103f1929190610604565b50818160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600381908060018154018082558091505090600182039060005260206000209060030201600090919290919091506000820154816000015560018201816001019080546001816001161561010002031660029004610494929190610684565b506002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505050505050565b6000600380549050905090565b60038181548110151561052257fe5b9060005260206000209060030201600091509050806000015490806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156105d45780601f106105a9576101008083540402835291602001916105d4565b820191906000526020600020905b8154815290600101906020018083116105b757829003601f168201915b5050505050908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905083565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061064557805160ff1916838001178555610673565b82800160010185558215610673579182015b82811115610672578251825591602001919060010190610657565b5b509050610680919061070b565b5090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106106bd57805485556106fa565b828001600101855582156106fa57600052602060002091601f016020900482015b828111156106f95782548255916001019190600101906106de565b5b509050610707919061070b565b5090565b61072d91905b80821115610729576000816000905550600101610711565b5090565b905600a165627a7a723058205bb8d8c292805dd7faf76f1930c23a2b4dbe2134dc2d70a05bec139413cb40790029",
-  "sourceMap": "27:932:2:-;;;316:59;8:9:-1;5:2;;;30:1;27;20:12;5:2;316:59:2;27:932;;;;;;",
-  "deployedSourceMap": "27:932:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;68:22;;8:9:-1;5:2;;;30:1;27;20:12;5:2;68:22:2;;;;;;;;;;;;;;;;;;;;;;;380:82;;8:9:-1;5:2;;;30:1;27;20:12;5:2;380:82:2;;;;;;;;;;;;;;;;;;;;;;;;;;240:35;;8:9:-1;5:2;;;30:1;27;20:12;5:2;240:35:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;468:72;;8:9:-1;5:2;;;30:1;27;20:12;5:2;468:72:2;;;;;;;;;;;;;;;;;;;;;;;547:310;;8:9:-1;5:2;;;30:1;27;20:12;5:2;547:310:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;863:94;;8:9:-1;5:2;;;30:1;27;20:12;5:2;863:94:2;;;;;;;;;;;;;;;;;;;;;;;281:28;;8:9:-1;5:2;;;30:1;27;20:12;5:2;281:28:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;281:28:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;68:22;;;;:::o;380:82::-;444:11;431:10;:24;;;;380:82;:::o;240:35::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;468:72::-;500:4;523:10;;516:17;;468:72;:::o;547:310::-;656:21;680:7;:17;688:8;680:17;;;;;;;;;;;;;;;656:41;;724:7;708:6;:13;;:23;;;;758:8;741:6;:14;;:25;;;;;;;;;;;;:::i;:::-;;799:14;776:6;:20;;;:37;;;;;;;;;;;;;;;;;;824:12;842:6;824:25;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;824:25:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;547:310;;;;;:::o;863:94::-;908:4;931:12;:19;;;;924:26;;863:94;:::o;281:28::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;27:932::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.4.23;\n\n\ncontract ConsultantReviewContract{\n\t\n    uint public testNumber;\n\n    struct Review{\n        uint rating;\n        string comment;\n        address clientAccount;\n    }\n\n    mapping (address => Review) reviews;\n    address[] public consultantAccounts;\n    Review[] public reviewsArray;\n\n    constructor(){\n\t// Basic constructor for the contract\n    }\n    function setTestNumber(uint _testNumber){\n\n        testNumber = _testNumber;\n    }\n\n    function getTestNumber()returns(uint){\n\n        return testNumber;\n    }\n\n\n    function setReview(address _address,uint _rating, string _comment, address _clientAccount) public {\n\n        Review storage review = reviews[_address];\n\n        review.rating = _rating;\n        review.comment = _comment;\n        review.clientAccount = _clientAccount;\n\n        reviewsArray.push(review);\n\n    }\n\n    function totalReviews() view public returns (uint){\n\n        return reviewsArray.length;\n    }\n}\n\n\n\n/*\n\t-- Just some comments\n\n\t\tClient storage client = clients[_address];\n\n\t\tclient.firstName = _firstName;\n\t\tclient.lastName = _lastName;\n\t\tclient.company = _company;\n\n\t\tclientAccounts.push(_address) -1;\n*/",
+  "bytecode": "0x608060405234801561001057600080fd5b50610c29806100206000396000f300608060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630d1972f31461009e5780631c1b6e87146100c957806347d5558b14610136578063519c9dc6146101c9578063a73a4aaf146101f6578063aeb71b07146102f3578063dae55d671461031e578063e23678901461038a578063f0d47799146103b5575b600080fd5b3480156100aa57600080fd5b506100b36104c8565b6040518082815260200191505060405180910390f35b3480156100d557600080fd5b506100f4600480360381019080803590602001909291905050506104ce565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014257600080fd5b506101c760048036038101908080359060200190929190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061050c565b005b3480156101d557600080fd5b506101f460048036038101908080359060200190929190505050610794565b005b34801561020257600080fd5b5061020b61079e565b60405180858152602001806020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825285818151815260200191508051906020019080838360005b838110156102b557808201518184015260208101905061029a565b50505050905090810190601f1680156102e25780820380516001836020036101000a031916815260200191505b509550505050505060405180910390f35b3480156102ff57600080fd5b50610308610916565b6040518082815260200191505060405180910390f35b34801561032a57600080fd5b5061033361091f565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561037657808201518184015260208101905061035b565b505050509050019250505060405180910390f35b34801561039657600080fd5b5061039f6109ad565b6040518082815260200191505060405180910390f35b3480156103c157600080fd5b506103e0600480360381019080803590602001909291905050506109ba565b60405180858152602001806020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825285818151815260200191508051906020019080838360005b8381101561048a57808201518184015260208101905061046f565b50505050905090810190601f1680156104b75780820380516001836020036101000a031916815260200191505b509550505050505060405180910390f35b60005481565b6002818154811015156104dd57fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020905083816000018190555082816001019080519060200190610570929190610ad1565b50818160030160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550338160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600381908060018154018082558091505090600182039060005260206000209060040201600090919290919091506000820154816000015560018201816001019080546001816001161561010002031660029004610656929190610b51565b506002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506003820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160030160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050505060023390806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505050565b8060008190555050565b60006060600080600360008154811015156107b557fe5b906000526020600020906004020160000154600360008154811015156107d757fe5b9060005260206000209060040201600101600360008154811015156107f857fe5b906000526020600020906004020160020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff166003600081548110151561083a57fe5b906000526020600020906004020160030160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156109015780601f106108d657610100808354040283529160200191610901565b820191906000526020600020905b8154815290600101906020018083116108e457829003601f168201915b50505050509250935093509350935090919293565b60008054905090565b606060028054806020026020016040519081016040528092919081815260200182805480156109a357602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019060010190808311610959575b5050505050905090565b6000600380549050905090565b6003818154811015156109c957fe5b9060005260206000209060040201600091509050806000015490806001018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610a7b5780601f10610a5057610100808354040283529160200191610a7b565b820191906000526020600020905b815481529060010190602001808311610a5e57829003601f168201915b5050505050908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060030160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905084565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610b1257805160ff1916838001178555610b40565b82800160010185558215610b40579182015b82811115610b3f578251825591602001919060010190610b24565b5b509050610b4d9190610bd8565b5090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610b8a5780548555610bc7565b82800160010185558215610bc757600052602060002091601f016020900482015b82811115610bc6578254825591600101919060010190610bab565b5b509050610bd49190610bd8565b5090565b610bfa91905b80821115610bf6576000816000905550600101610bde565b5090565b905600a165627a7a723058206dc76d73dd485a3b55ce1923f5b2c5ac5358569bfe8b73fad2f1c469331610a90029",
+  "deployedBytecode": "0x608060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630d1972f31461009e5780631c1b6e87146100c957806347d5558b14610136578063519c9dc6146101c9578063a73a4aaf146101f6578063aeb71b07146102f3578063dae55d671461031e578063e23678901461038a578063f0d47799146103b5575b600080fd5b3480156100aa57600080fd5b506100b36104c8565b6040518082815260200191505060405180910390f35b3480156100d557600080fd5b506100f4600480360381019080803590602001909291905050506104ce565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014257600080fd5b506101c760048036038101908080359060200190929190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061050c565b005b3480156101d557600080fd5b506101f460048036038101908080359060200190929190505050610794565b005b34801561020257600080fd5b5061020b61079e565b60405180858152602001806020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825285818151815260200191508051906020019080838360005b838110156102b557808201518184015260208101905061029a565b50505050905090810190601f1680156102e25780820380516001836020036101000a031916815260200191505b509550505050505060405180910390f35b3480156102ff57600080fd5b50610308610916565b6040518082815260200191505060405180910390f35b34801561032a57600080fd5b5061033361091f565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561037657808201518184015260208101905061035b565b505050509050019250505060405180910390f35b34801561039657600080fd5b5061039f6109ad565b6040518082815260200191505060405180910390f35b3480156103c157600080fd5b506103e0600480360381019080803590602001909291905050506109ba565b60405180858152602001806020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825285818151815260200191508051906020019080838360005b8381101561048a57808201518184015260208101905061046f565b50505050905090810190601f1680156104b75780820380516001836020036101000a031916815260200191505b509550505050505060405180910390f35b60005481565b6002818154811015156104dd57fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020905083816000018190555082816001019080519060200190610570929190610ad1565b50818160030160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550338160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600381908060018154018082558091505090600182039060005260206000209060040201600090919290919091506000820154816000015560018201816001019080546001816001161561010002031660029004610656929190610b51565b506002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506003820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160030160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050505060023390806001815401808255809150509060018203906000526020600020016000909192909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050505050565b8060008190555050565b60006060600080600360008154811015156107b557fe5b906000526020600020906004020160000154600360008154811015156107d757fe5b9060005260206000209060040201600101600360008154811015156107f857fe5b906000526020600020906004020160020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff166003600081548110151561083a57fe5b906000526020600020906004020160030160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156109015780601f106108d657610100808354040283529160200191610901565b820191906000526020600020905b8154815290600101906020018083116108e457829003601f168201915b50505050509250935093509350935090919293565b60008054905090565b606060028054806020026020016040519081016040528092919081815260200182805480156109a357602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019060010190808311610959575b5050505050905090565b6000600380549050905090565b6003818154811015156109c957fe5b9060005260206000209060040201600091509050806000015490806001018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610a7b5780601f10610a5057610100808354040283529160200191610a7b565b820191906000526020600020905b815481529060010190602001808311610a5e57829003601f168201915b5050505050908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060030160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905084565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610b1257805160ff1916838001178555610b40565b82800160010185558215610b40579182015b82811115610b3f578251825591602001919060010190610b24565b5b509050610b4d9190610bd8565b5090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610b8a5780548555610bc7565b82800160010185558215610bc757600052602060002091601f016020900482015b82811115610bc6578254825591600101919060010190610bab565b5b509050610bd49190610bd8565b5090565b610bfa91905b80821115610bf6576000816000905550600101610bde565b5090565b905600a165627a7a723058206dc76d73dd485a3b55ce1923f5b2c5ac5358569bfe8b73fad2f1c469331610a90029",
+  "sourceMap": "27:1535:2:-;;;347:59;8:9:-1;5:2;;;30:1;27;20:12;5:2;347:59:2;27:1535;;;;;;",
+  "deployedSourceMap": "27:1535:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;68:22;;8:9:-1;5:2;;;30:1;27;20:12;5:2;68:22:2;;;;;;;;;;;;;;;;;;;;;;;275:31;;8:9:-1;5:2;;;30:1;27;20:12;5:2;275:31:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;591:391;;8:9:-1;5:2;;;30:1;27;20:12;5:2;591:391:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;411:82;;8:9:-1;5:2;;;30:1;27;20:12;5:2;411:82:2;;;;;;;;;;;;;;;;;;;;;;;;;;1135:219;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1135:219:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1135:219:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;499:85;;8:9:-1;5:2;;;30:1;27;20:12;5:2;499:85:2;;;;;;;;;;;;;;;;;;;;;;;1460:100;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1460:100:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1460:100:2;;;;;;;;;;;;;;;;;1360:94;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1360:94:2;;;;;;;;;;;;;;;;;;;;;;;312:28;;8:9:-1;5:2;;;30:1;27;20:12;5:2;312:28:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;312:28:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;68:22;;;;:::o;275:31::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;591:391::-;687:21;711:7;:19;719:10;711:19;;;;;;;;;;;;;;;687:43;;757:7;741:6;:13;;:23;;;;791:8;774:6;:14;;:25;;;;;;;;;;;;:::i;:::-;;836:18;809:6;:24;;;:45;;;;;;;;;;;;;;;;;;887:10;864:6;:20;;;:33;;;;;;;;;;;;;;;;;;908:12;926:6;908:25;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;908:25:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;943:14;963:10;943:31;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;943:31:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;591:391;;;;:::o;411:82::-;475:11;462:10;:24;;;;411:82;:::o;1135:219::-;1176:4;1182:6;1190:7;1199;1233:12;1246:1;1233:15;;;;;;;;;;;;;;;;;;;;:22;;;1257:12;1270:1;1257:15;;;;;;;;;;;;;;;;;;;;:23;;1282:12;1295:1;1282:15;;;;;;;;;;;;;;;;;;;;:29;;;;;;;;;;;;1313:12;1326:1;1313:15;;;;;;;;;;;;;;;;;;;;:33;;;;;;;;;;;;1226:121;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1135:219;;;;:::o;499:85::-;544:4;567:10;;560:17;;499:85;:::o;1460:100::-;1510:9;1538:14;1531:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1460:100;:::o;1360:94::-;1405:4;1428:12;:19;;;;1421:26;;1360:94;:::o;312:28::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;27:1535::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.23;\n\n\ncontract ConsultantReviewContract{\n\t\n    uint public testNumber;\n\n    struct Review{\n        uint rating;\n        string comment;\n        address clientAccount;\n        address consultantAccount;\n    }\n\n    mapping (address => Review) reviews;\n    address[] public clientAccounts;\n    Review[] public reviewsArray;\n\n    constructor(){\n\t// Basic constructor for the contract\n    }\n    function setTestNumber(uint _testNumber){\n\n        testNumber = _testNumber;\n    }\n\n    function getTestNumber() public view returns(uint){\n\n        return testNumber;\n    }\n\n\n    function setReview(uint _rating, string _comment, address _consultantAccount) public {\n\n        Review storage review = reviews[msg.sender];\n\n        review.rating = _rating;\n        review.comment = _comment;\n        review.consultantAccount = _consultantAccount;\n        review.clientAccount = msg.sender;\n\n        reviewsArray.push(review);\n        clientAccounts.push(msg.sender);\n\n    }\n\n    // Need to have multiple reviews retrivals \n    // 1) client's review\n    // 2) client with specific consultant review \n    // 3) All reviews\n\n    function getReview() public view returns(uint, string, address, address){\n        \n        return(reviewsArray[0].rating, reviewsArray[0].comment, reviewsArray[0].clientAccount, reviewsArray[0].consultantAccount);\n    }\n\n    function totalReviews() public view returns (uint){\n\n        return reviewsArray.length;\n    }\n\n    function getClientAccounts() public view returns (address[]){\n\n        return clientAccounts;\n\n    }\n}\n\n\n\n/*\n\t-- Just some comments\n\n\t\tClient storage client = clients[_address];\n\n\t\tclient.firstName = _firstName;\n\t\tclient.lastName = _lastName;\n\t\tclient.company = _company;\n\n\t\tclientAccounts.push(_address) -1;\n*/",
   "sourcePath": "/Users/usman/Documents/blockchain/review/contracts/ConsultantReviewContract.sol",
   "ast": {
     "absolutePath": "/Users/usman/Documents/blockchain/review/contracts/ConsultantReviewContract.sol",
     "exportedSymbols": {
       "ConsultantReviewContract": [
-        421
+        560
       ]
     },
-    "id": 422,
+    "id": 561,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 328,
+        "id": 413,
         "literals": [
           "solidity",
           "^",
@@ -169,19 +209,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 421,
+        "id": 560,
         "linearizedBaseContracts": [
-          421
+          560
         ],
         "name": "ConsultantReviewContract",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 330,
+            "id": 415,
             "name": "testNumber",
             "nodeType": "VariableDeclaration",
-            "scope": 421,
+            "scope": 560,
             "src": "68:22:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -190,7 +230,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 329,
+              "id": 414,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "68:4:2",
@@ -204,14 +244,14 @@
           },
           {
             "canonicalName": "ConsultantReviewContract.Review",
-            "id": 337,
+            "id": 424,
             "members": [
               {
                 "constant": false,
-                "id": 332,
+                "id": 417,
                 "name": "rating",
                 "nodeType": "VariableDeclaration",
-                "scope": 337,
+                "scope": 424,
                 "src": "120:11:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -220,7 +260,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 331,
+                  "id": 416,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "120:4:2",
@@ -234,10 +274,10 @@
               },
               {
                 "constant": false,
-                "id": 334,
+                "id": 419,
                 "name": "comment",
                 "nodeType": "VariableDeclaration",
-                "scope": 337,
+                "scope": 424,
                 "src": "141:14:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -246,7 +286,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 333,
+                  "id": 418,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "141:6:2",
@@ -260,10 +300,10 @@
               },
               {
                 "constant": false,
-                "id": 336,
+                "id": 421,
                 "name": "clientAccount",
                 "nodeType": "VariableDeclaration",
-                "scope": 337,
+                "scope": 424,
                 "src": "165:21:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -272,10 +312,36 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 335,
+                  "id": 420,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "165:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 423,
+                "name": "consultantAccount",
+                "nodeType": "VariableDeclaration",
+                "scope": 424,
+                "src": "196:25:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 422,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "196:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -287,50 +353,50 @@
             ],
             "name": "Review",
             "nodeType": "StructDefinition",
-            "scope": 421,
-            "src": "97:96:2",
+            "scope": 560,
+            "src": "97:131:2",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 341,
+            "id": 428,
             "name": "reviews",
             "nodeType": "VariableDeclaration",
-            "scope": 421,
-            "src": "199:35:2",
+            "scope": 560,
+            "src": "234:35:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$337_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$424_storage_$",
               "typeString": "mapping(address => struct ConsultantReviewContract.Review)"
             },
             "typeName": {
-              "id": 340,
+              "id": 427,
               "keyType": {
-                "id": 338,
+                "id": 425,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "208:7:2",
+                "src": "243:7:2",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "199:27:2",
+              "src": "234:27:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$337_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$424_storage_$",
                 "typeString": "mapping(address => struct ConsultantReviewContract.Review)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 339,
+                "id": 426,
                 "name": "Review",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 337,
-                "src": "219:6:2",
+                "referencedDeclaration": 424,
+                "src": "254:6:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                  "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                   "typeString": "struct ConsultantReviewContract.Review"
                 }
               }
@@ -340,11 +406,11 @@
           },
           {
             "constant": false,
-            "id": 344,
-            "name": "consultantAccounts",
+            "id": 431,
+            "name": "clientAccounts",
             "nodeType": "VariableDeclaration",
-            "scope": 421,
-            "src": "240:35:2",
+            "scope": 560,
+            "src": "275:31:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -353,19 +419,19 @@
             },
             "typeName": {
               "baseType": {
-                "id": 342,
+                "id": 429,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "240:7:2",
+                "src": "275:7:2",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
-              "id": 343,
+              "id": 430,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "240:9:2",
+              "src": "275:9:2",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                 "typeString": "address[]"
@@ -376,36 +442,36 @@
           },
           {
             "constant": false,
-            "id": 347,
+            "id": 434,
             "name": "reviewsArray",
             "nodeType": "VariableDeclaration",
-            "scope": 421,
-            "src": "281:28:2",
+            "scope": 560,
+            "src": "312:28:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Review_$337_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
               "typeString": "struct ConsultantReviewContract.Review[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 345,
+                "id": 432,
                 "name": "Review",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 337,
-                "src": "281:6:2",
+                "referencedDeclaration": 424,
+                "src": "312:6:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                  "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                   "typeString": "struct ConsultantReviewContract.Review"
                 }
               },
-              "id": 346,
+              "id": 433,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "281:8:2",
+              "src": "312:8:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Review_$337_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage_ptr",
                 "typeString": "struct ConsultantReviewContract.Review[]"
               }
             },
@@ -414,13 +480,13 @@
           },
           {
             "body": {
-              "id": 350,
+              "id": 437,
               "nodeType": "Block",
-              "src": "329:46:2",
+              "src": "360:46:2",
               "statements": []
             },
             "documentation": null,
-            "id": 351,
+            "id": 438,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -428,46 +494,46 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 348,
+              "id": 435,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "327:2:2"
+              "src": "358:2:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 349,
+              "id": 436,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "329:0:2"
+              "src": "360:0:2"
             },
-            "scope": 421,
-            "src": "316:59:2",
+            "scope": 560,
+            "src": "347:59:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 360,
+              "id": 447,
               "nodeType": "Block",
-              "src": "420:42:2",
+              "src": "451:42:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 358,
+                    "id": 445,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 356,
+                      "id": 443,
                       "name": "testNumber",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 330,
-                      "src": "431:10:2",
+                      "referencedDeclaration": 415,
+                      "src": "462:10:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -477,31 +543,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 357,
+                      "id": 444,
                       "name": "_testNumber",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 353,
-                      "src": "444:11:2",
+                      "referencedDeclaration": 440,
+                      "src": "475:11:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "431:24:2",
+                    "src": "462:24:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 359,
+                  "id": 446,
                   "nodeType": "ExpressionStatement",
-                  "src": "431:24:2"
+                  "src": "462:24:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 361,
+            "id": 448,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -509,16 +575,16 @@
             "name": "setTestNumber",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 354,
+              "id": 441,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 353,
+                  "id": 440,
                   "name": "_testNumber",
                   "nodeType": "VariableDeclaration",
-                  "scope": 361,
-                  "src": "403:16:2",
+                  "scope": 448,
+                  "src": "434:16:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -526,10 +592,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 352,
+                    "id": 439,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "403:4:2",
+                    "src": "434:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -539,74 +605,74 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "402:18:2"
+              "src": "433:18:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 355,
+              "id": 442,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "420:0:2"
+              "src": "451:0:2"
             },
-            "scope": 421,
-            "src": "380:82:2",
+            "scope": 560,
+            "src": "411:82:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 368,
+              "id": 455,
               "nodeType": "Block",
-              "src": "505:35:2",
+              "src": "549:35:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 366,
+                    "id": 453,
                     "name": "testNumber",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 330,
-                    "src": "523:10:2",
+                    "referencedDeclaration": 415,
+                    "src": "567:10:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 365,
-                  "id": 367,
+                  "functionReturnParameters": 452,
+                  "id": 454,
                   "nodeType": "Return",
-                  "src": "516:17:2"
+                  "src": "560:17:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 369,
+            "id": 456,
             "implemented": true,
             "isConstructor": false,
-            "isDeclaredConst": false,
+            "isDeclaredConst": true,
             "modifiers": [],
             "name": "getTestNumber",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 362,
+              "id": 449,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "490:2:2"
+              "src": "521:2:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 365,
+              "id": 452,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 364,
+                  "id": 451,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 369,
-                  "src": "500:4:2",
+                  "scope": 456,
+                  "src": "544:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -614,10 +680,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 363,
+                    "id": 450,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "500:4:2",
+                    "src": "544:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -627,47 +693,47 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "499:6:2"
+              "src": "543:6:2"
             },
-            "scope": 421,
-            "src": "468:72:2",
-            "stateMutability": "nonpayable",
+            "scope": 560,
+            "src": "499:85:2",
+            "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 410,
+              "id": 510,
               "nodeType": "Block",
-              "src": "645:212:2",
+              "src": "676:306:2",
               "statements": [
                 {
                   "assignments": [
-                    381
+                    466
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 381,
+                      "id": 466,
                       "name": "review",
                       "nodeType": "VariableDeclaration",
-                      "scope": 411,
-                      "src": "656:21:2",
+                      "scope": 511,
+                      "src": "687:21:2",
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                        "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                         "typeString": "struct ConsultantReviewContract.Review"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 380,
+                        "id": 465,
                         "name": "Review",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 337,
-                        "src": "656:6:2",
+                        "referencedDeclaration": 424,
+                        "src": "687:6:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review"
                         }
                       },
@@ -675,31 +741,47 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 385,
+                  "id": 471,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 382,
+                      "id": 467,
                       "name": "reviews",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 341,
-                      "src": "680:7:2",
+                      "referencedDeclaration": 428,
+                      "src": "711:7:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$337_storage_$",
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$424_storage_$",
                         "typeString": "mapping(address => struct ConsultantReviewContract.Review storage ref)"
                       }
                     },
-                    "id": 384,
+                    "id": 470,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 383,
-                      "name": "_address",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 371,
-                      "src": "688:8:2",
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 468,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 676,
+                        "src": "719:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 469,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "719:10:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -710,19 +792,19 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "680:17:2",
+                    "src": "711:19:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Review_$337_storage",
+                      "typeIdentifier": "t_struct$_Review_$424_storage",
                       "typeString": "struct ConsultantReviewContract.Review storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "656:41:2"
+                  "src": "687:43:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 390,
+                    "id": 476,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -731,26 +813,26 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 386,
+                        "id": 472,
                         "name": "review",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 381,
-                        "src": "708:6:2",
+                        "referencedDeclaration": 466,
+                        "src": "741:6:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review storage pointer"
                         }
                       },
-                      "id": 388,
+                      "id": 474,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "rating",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 332,
-                      "src": "708:13:2",
+                      "referencedDeclaration": 417,
+                      "src": "741:13:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -760,31 +842,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 389,
+                      "id": 475,
                       "name": "_rating",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 373,
-                      "src": "724:7:2",
+                      "referencedDeclaration": 458,
+                      "src": "757:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "708:23:2",
+                    "src": "741:23:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 391,
+                  "id": 477,
                   "nodeType": "ExpressionStatement",
-                  "src": "708:23:2"
+                  "src": "741:23:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 396,
+                    "id": 482,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -793,26 +875,26 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 392,
+                        "id": 478,
                         "name": "review",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 381,
-                        "src": "741:6:2",
+                        "referencedDeclaration": 466,
+                        "src": "774:6:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review storage pointer"
                         }
                       },
-                      "id": 394,
+                      "id": 480,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "comment",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 334,
-                      "src": "741:14:2",
+                      "referencedDeclaration": 419,
+                      "src": "774:14:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
                         "typeString": "string storage ref"
@@ -822,31 +904,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 395,
+                      "id": 481,
                       "name": "_comment",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 375,
-                      "src": "758:8:2",
+                      "referencedDeclaration": 460,
+                      "src": "791:8:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
                         "typeString": "string memory"
                       }
                     },
-                    "src": "741:25:2",
+                    "src": "774:25:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 397,
+                  "id": 483,
                   "nodeType": "ExpressionStatement",
-                  "src": "741:25:2"
+                  "src": "774:25:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 402,
+                    "id": 488,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -855,26 +937,26 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 398,
+                        "id": 484,
                         "name": "review",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 381,
-                        "src": "776:6:2",
+                        "referencedDeclaration": 466,
+                        "src": "809:6:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review storage pointer"
                         }
                       },
-                      "id": 400,
+                      "id": 486,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
-                      "memberName": "clientAccount",
+                      "memberName": "consultantAccount",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 336,
-                      "src": "776:20:2",
+                      "referencedDeclaration": 423,
+                      "src": "809:24:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -884,26 +966,104 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 401,
-                      "name": "_clientAccount",
+                      "id": 487,
+                      "name": "_consultantAccount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 377,
-                      "src": "799:14:2",
+                      "referencedDeclaration": 462,
+                      "src": "836:18:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "776:37:2",
+                    "src": "809:45:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 403,
+                  "id": 489,
                   "nodeType": "ExpressionStatement",
-                  "src": "776:37:2"
+                  "src": "809:45:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 495,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 490,
+                        "name": "review",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 466,
+                        "src": "864:6:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
+                          "typeString": "struct ConsultantReviewContract.Review storage pointer"
+                        }
+                      },
+                      "id": 492,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "clientAccount",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 421,
+                      "src": "864:20:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 493,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 676,
+                        "src": "887:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 494,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "887:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "864:33:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 496,
+                  "nodeType": "ExpressionStatement",
+                  "src": "864:33:2"
                 },
                 {
                   "expression": {
@@ -911,14 +1071,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 407,
+                        "id": 500,
                         "name": "review",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 381,
-                        "src": "842:6:2",
+                        "referencedDeclaration": 466,
+                        "src": "926:6:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review storage pointer"
                         }
                       }
@@ -926,24 +1086,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review storage pointer"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 404,
+                        "id": 497,
                         "name": "reviewsArray",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 347,
-                        "src": "824:12:2",
+                        "referencedDeclaration": 434,
+                        "src": "908:12:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Review_$337_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
                           "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
                         }
                       },
-                      "id": 406,
+                      "id": 499,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -951,13 +1111,13 @@
                       "memberName": "push",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "824:17:2",
+                      "src": "908:17:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Review_$337_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Review_$424_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct ConsultantReviewContract.Review storage ref) returns (uint256)"
                       }
                     },
-                    "id": 408,
+                    "id": 501,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -965,20 +1125,106 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "824:25:2",
+                    "src": "908:25:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 409,
+                  "id": 502,
                   "nodeType": "ExpressionStatement",
-                  "src": "824:25:2"
+                  "src": "908:25:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 506,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 676,
+                          "src": "963:3:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 507,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "963:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 503,
+                        "name": "clientAccounts",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 431,
+                        "src": "943:14:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                          "typeString": "address[] storage ref"
+                        }
+                      },
+                      "id": 505,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "943:19:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_address_$returns$_t_uint256_$",
+                        "typeString": "function (address) returns (uint256)"
+                      }
+                    },
+                    "id": 508,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "943:31:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 509,
+                  "nodeType": "ExpressionStatement",
+                  "src": "943:31:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 411,
+            "id": 511,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -986,42 +1232,16 @@
             "name": "setReview",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 378,
+              "id": 463,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 371,
-                  "name": "_address",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 411,
-                  "src": "566:16:2",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 370,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "566:7:2",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 373,
+                  "id": 458,
                   "name": "_rating",
                   "nodeType": "VariableDeclaration",
-                  "scope": 411,
-                  "src": "583:12:2",
+                  "scope": 511,
+                  "src": "610:12:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1029,10 +1249,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 372,
+                    "id": 457,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "583:4:2",
+                    "src": "610:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1043,11 +1263,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 375,
+                  "id": 460,
                   "name": "_comment",
                   "nodeType": "VariableDeclaration",
-                  "scope": 411,
-                  "src": "597:15:2",
+                  "scope": 511,
+                  "src": "624:15:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1055,10 +1275,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 374,
+                    "id": 459,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "597:6:2",
+                    "src": "624:6:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1069,11 +1289,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 377,
-                  "name": "_clientAccount",
+                  "id": 462,
+                  "name": "_consultantAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 411,
-                  "src": "614:22:2",
+                  "scope": 511,
+                  "src": "641:26:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1081,10 +1301,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 376,
+                    "id": 461,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "614:7:2",
+                    "src": "641:7:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1094,90 +1314,322 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "565:72:2"
+              "src": "609:59:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 379,
+              "id": 464,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "645:0:2"
+              "src": "676:0:2"
             },
-            "scope": 421,
-            "src": "547:310:2",
+            "scope": 560,
+            "src": "591:391:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 419,
+              "id": 540,
               "nodeType": "Block",
-              "src": "913:44:2",
+              "src": "1207:147:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "expression": {
-                      "argumentTypes": null,
-                      "id": 416,
-                      "name": "reviewsArray",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 347,
-                      "src": "931:12:2",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_Review_$337_storage_$dyn_storage",
-                        "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 522,
+                            "name": "reviewsArray",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 434,
+                            "src": "1233:12:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
+                              "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                            }
+                          },
+                          "id": 524,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 523,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1246:1:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1233:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Review_$424_storage",
+                            "typeString": "struct ConsultantReviewContract.Review storage ref"
+                          }
+                        },
+                        "id": 525,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "rating",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 417,
+                        "src": "1233:22:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 526,
+                            "name": "reviewsArray",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 434,
+                            "src": "1257:12:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
+                              "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                            }
+                          },
+                          "id": 528,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 527,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1270:1:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1257:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Review_$424_storage",
+                            "typeString": "struct ConsultantReviewContract.Review storage ref"
+                          }
+                        },
+                        "id": 529,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "comment",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 419,
+                        "src": "1257:23:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 530,
+                            "name": "reviewsArray",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 434,
+                            "src": "1282:12:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
+                              "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                            }
+                          },
+                          "id": 532,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 531,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1295:1:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1282:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Review_$424_storage",
+                            "typeString": "struct ConsultantReviewContract.Review storage ref"
+                          }
+                        },
+                        "id": 533,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "clientAccount",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 421,
+                        "src": "1282:29:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 534,
+                            "name": "reviewsArray",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 434,
+                            "src": "1313:12:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
+                              "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                            }
+                          },
+                          "id": 536,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 535,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1326:1:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1313:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Review_$424_storage",
+                            "typeString": "struct ConsultantReviewContract.Review storage ref"
+                          }
+                        },
+                        "id": 537,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "consultantAccount",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 423,
+                        "src": "1313:33:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
                       }
-                    },
-                    "id": 417,
+                    ],
+                    "id": 538,
                     "isConstant": false,
-                    "isLValue": true,
+                    "isInlineArray": false,
+                    "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "memberName": "length",
-                    "nodeType": "MemberAccess",
-                    "referencedDeclaration": null,
-                    "src": "931:19:2",
+                    "nodeType": "TupleExpression",
+                    "src": "1232:115:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_tuple$_t_uint256_$_t_string_storage_$_t_address_$_t_address_$",
+                      "typeString": "tuple(uint256,string storage ref,address,address)"
                     }
                   },
-                  "functionReturnParameters": 415,
-                  "id": 418,
+                  "functionReturnParameters": 521,
+                  "id": 539,
                   "nodeType": "Return",
-                  "src": "924:26:2"
+                  "src": "1226:121:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 420,
+            "id": 541,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
             "modifiers": [],
-            "name": "totalReviews",
+            "name": "getReview",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 412,
+              "id": 512,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "884:2:2"
+              "src": "1153:2:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 415,
+              "id": 521,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 414,
+                  "id": 514,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 420,
-                  "src": "908:4:2",
+                  "scope": 541,
+                  "src": "1176:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1185,10 +1637,185 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 413,
+                    "id": 513,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "908:4:2",
+                    "src": "1176:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 516,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 541,
+                  "src": "1182:6:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 515,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1182:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 518,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 541,
+                  "src": "1190:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 517,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1190:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 520,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 541,
+                  "src": "1199:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 519,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1199:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1175:32:2"
+            },
+            "scope": 560,
+            "src": "1135:219:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 549,
+              "nodeType": "Block",
+              "src": "1410:44:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 546,
+                      "name": "reviewsArray",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 434,
+                      "src": "1428:12:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
+                        "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                      }
+                    },
+                    "id": 547,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "1428:19:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 545,
+                  "id": 548,
+                  "nodeType": "Return",
+                  "src": "1421:26:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 550,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "totalReviews",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 542,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1381:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 545,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 544,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 550,
+                  "src": "1405:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 543,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1405:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1198,33 +1825,124 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "907:6:2"
+              "src": "1404:6:2"
             },
-            "scope": 421,
-            "src": "863:94:2",
+            "scope": 560,
+            "src": "1360:94:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 558,
+              "nodeType": "Block",
+              "src": "1520:40:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 556,
+                    "name": "clientAccounts",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 431,
+                    "src": "1538:14:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                      "typeString": "address[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 555,
+                  "id": 557,
+                  "nodeType": "Return",
+                  "src": "1531:21:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 559,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getClientAccounts",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 551,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1486:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 555,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 554,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 559,
+                  "src": "1510:9:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 552,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1510:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 553,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1510:9:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1509:11:2"
+            },
+            "scope": 560,
+            "src": "1460:100:2",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 422,
-        "src": "27:932:2"
+        "scope": 561,
+        "src": "27:1535:2"
       }
     ],
-    "src": "0:1168:2"
+    "src": "0:1771:2"
   },
   "legacyAST": {
     "absolutePath": "/Users/usman/Documents/blockchain/review/contracts/ConsultantReviewContract.sol",
     "exportedSymbols": {
       "ConsultantReviewContract": [
-        421
+        560
       ]
     },
-    "id": 422,
+    "id": 561,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 328,
+        "id": 413,
         "literals": [
           "solidity",
           "^",
@@ -1240,19 +1958,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 421,
+        "id": 560,
         "linearizedBaseContracts": [
-          421
+          560
         ],
         "name": "ConsultantReviewContract",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 330,
+            "id": 415,
             "name": "testNumber",
             "nodeType": "VariableDeclaration",
-            "scope": 421,
+            "scope": 560,
             "src": "68:22:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1261,7 +1979,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 329,
+              "id": 414,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "68:4:2",
@@ -1275,14 +1993,14 @@
           },
           {
             "canonicalName": "ConsultantReviewContract.Review",
-            "id": 337,
+            "id": 424,
             "members": [
               {
                 "constant": false,
-                "id": 332,
+                "id": 417,
                 "name": "rating",
                 "nodeType": "VariableDeclaration",
-                "scope": 337,
+                "scope": 424,
                 "src": "120:11:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1291,7 +2009,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 331,
+                  "id": 416,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "120:4:2",
@@ -1305,10 +2023,10 @@
               },
               {
                 "constant": false,
-                "id": 334,
+                "id": 419,
                 "name": "comment",
                 "nodeType": "VariableDeclaration",
-                "scope": 337,
+                "scope": 424,
                 "src": "141:14:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1317,7 +2035,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 333,
+                  "id": 418,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "141:6:2",
@@ -1331,10 +2049,10 @@
               },
               {
                 "constant": false,
-                "id": 336,
+                "id": 421,
                 "name": "clientAccount",
                 "nodeType": "VariableDeclaration",
-                "scope": 337,
+                "scope": 424,
                 "src": "165:21:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1343,10 +2061,36 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 335,
+                  "id": 420,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "165:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 423,
+                "name": "consultantAccount",
+                "nodeType": "VariableDeclaration",
+                "scope": 424,
+                "src": "196:25:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 422,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "196:7:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -1358,50 +2102,50 @@
             ],
             "name": "Review",
             "nodeType": "StructDefinition",
-            "scope": 421,
-            "src": "97:96:2",
+            "scope": 560,
+            "src": "97:131:2",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 341,
+            "id": 428,
             "name": "reviews",
             "nodeType": "VariableDeclaration",
-            "scope": 421,
-            "src": "199:35:2",
+            "scope": 560,
+            "src": "234:35:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$337_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$424_storage_$",
               "typeString": "mapping(address => struct ConsultantReviewContract.Review)"
             },
             "typeName": {
-              "id": 340,
+              "id": 427,
               "keyType": {
-                "id": 338,
+                "id": 425,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "208:7:2",
+                "src": "243:7:2",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "199:27:2",
+              "src": "234:27:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$337_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$424_storage_$",
                 "typeString": "mapping(address => struct ConsultantReviewContract.Review)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 339,
+                "id": 426,
                 "name": "Review",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 337,
-                "src": "219:6:2",
+                "referencedDeclaration": 424,
+                "src": "254:6:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                  "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                   "typeString": "struct ConsultantReviewContract.Review"
                 }
               }
@@ -1411,11 +2155,11 @@
           },
           {
             "constant": false,
-            "id": 344,
-            "name": "consultantAccounts",
+            "id": 431,
+            "name": "clientAccounts",
             "nodeType": "VariableDeclaration",
-            "scope": 421,
-            "src": "240:35:2",
+            "scope": 560,
+            "src": "275:31:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1424,19 +2168,19 @@
             },
             "typeName": {
               "baseType": {
-                "id": 342,
+                "id": 429,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "240:7:2",
+                "src": "275:7:2",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
-              "id": 343,
+              "id": 430,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "240:9:2",
+              "src": "275:9:2",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                 "typeString": "address[]"
@@ -1447,36 +2191,36 @@
           },
           {
             "constant": false,
-            "id": 347,
+            "id": 434,
             "name": "reviewsArray",
             "nodeType": "VariableDeclaration",
-            "scope": 421,
-            "src": "281:28:2",
+            "scope": 560,
+            "src": "312:28:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Review_$337_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
               "typeString": "struct ConsultantReviewContract.Review[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 345,
+                "id": 432,
                 "name": "Review",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 337,
-                "src": "281:6:2",
+                "referencedDeclaration": 424,
+                "src": "312:6:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                  "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                   "typeString": "struct ConsultantReviewContract.Review"
                 }
               },
-              "id": 346,
+              "id": 433,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "281:8:2",
+              "src": "312:8:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Review_$337_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage_ptr",
                 "typeString": "struct ConsultantReviewContract.Review[]"
               }
             },
@@ -1485,13 +2229,13 @@
           },
           {
             "body": {
-              "id": 350,
+              "id": 437,
               "nodeType": "Block",
-              "src": "329:46:2",
+              "src": "360:46:2",
               "statements": []
             },
             "documentation": null,
-            "id": 351,
+            "id": 438,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -1499,46 +2243,46 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 348,
+              "id": 435,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "327:2:2"
+              "src": "358:2:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 349,
+              "id": 436,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "329:0:2"
+              "src": "360:0:2"
             },
-            "scope": 421,
-            "src": "316:59:2",
+            "scope": 560,
+            "src": "347:59:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 360,
+              "id": 447,
               "nodeType": "Block",
-              "src": "420:42:2",
+              "src": "451:42:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 358,
+                    "id": 445,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 356,
+                      "id": 443,
                       "name": "testNumber",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 330,
-                      "src": "431:10:2",
+                      "referencedDeclaration": 415,
+                      "src": "462:10:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1548,31 +2292,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 357,
+                      "id": 444,
                       "name": "_testNumber",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 353,
-                      "src": "444:11:2",
+                      "referencedDeclaration": 440,
+                      "src": "475:11:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "431:24:2",
+                    "src": "462:24:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 359,
+                  "id": 446,
                   "nodeType": "ExpressionStatement",
-                  "src": "431:24:2"
+                  "src": "462:24:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 361,
+            "id": 448,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1580,16 +2324,16 @@
             "name": "setTestNumber",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 354,
+              "id": 441,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 353,
+                  "id": 440,
                   "name": "_testNumber",
                   "nodeType": "VariableDeclaration",
-                  "scope": 361,
-                  "src": "403:16:2",
+                  "scope": 448,
+                  "src": "434:16:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1597,10 +2341,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 352,
+                    "id": 439,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "403:4:2",
+                    "src": "434:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1610,74 +2354,74 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "402:18:2"
+              "src": "433:18:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 355,
+              "id": 442,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "420:0:2"
+              "src": "451:0:2"
             },
-            "scope": 421,
-            "src": "380:82:2",
+            "scope": 560,
+            "src": "411:82:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 368,
+              "id": 455,
               "nodeType": "Block",
-              "src": "505:35:2",
+              "src": "549:35:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 366,
+                    "id": 453,
                     "name": "testNumber",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 330,
-                    "src": "523:10:2",
+                    "referencedDeclaration": 415,
+                    "src": "567:10:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 365,
-                  "id": 367,
+                  "functionReturnParameters": 452,
+                  "id": 454,
                   "nodeType": "Return",
-                  "src": "516:17:2"
+                  "src": "560:17:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 369,
+            "id": 456,
             "implemented": true,
             "isConstructor": false,
-            "isDeclaredConst": false,
+            "isDeclaredConst": true,
             "modifiers": [],
             "name": "getTestNumber",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 362,
+              "id": 449,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "490:2:2"
+              "src": "521:2:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 365,
+              "id": 452,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 364,
+                  "id": 451,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 369,
-                  "src": "500:4:2",
+                  "scope": 456,
+                  "src": "544:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1685,10 +2429,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 363,
+                    "id": 450,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "500:4:2",
+                    "src": "544:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1698,47 +2442,47 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "499:6:2"
+              "src": "543:6:2"
             },
-            "scope": 421,
-            "src": "468:72:2",
-            "stateMutability": "nonpayable",
+            "scope": 560,
+            "src": "499:85:2",
+            "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 410,
+              "id": 510,
               "nodeType": "Block",
-              "src": "645:212:2",
+              "src": "676:306:2",
               "statements": [
                 {
                   "assignments": [
-                    381
+                    466
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 381,
+                      "id": 466,
                       "name": "review",
                       "nodeType": "VariableDeclaration",
-                      "scope": 411,
-                      "src": "656:21:2",
+                      "scope": 511,
+                      "src": "687:21:2",
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                        "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                         "typeString": "struct ConsultantReviewContract.Review"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 380,
+                        "id": 465,
                         "name": "Review",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 337,
-                        "src": "656:6:2",
+                        "referencedDeclaration": 424,
+                        "src": "687:6:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review"
                         }
                       },
@@ -1746,31 +2490,47 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 385,
+                  "id": 471,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 382,
+                      "id": 467,
                       "name": "reviews",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 341,
-                      "src": "680:7:2",
+                      "referencedDeclaration": 428,
+                      "src": "711:7:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$337_storage_$",
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Review_$424_storage_$",
                         "typeString": "mapping(address => struct ConsultantReviewContract.Review storage ref)"
                       }
                     },
-                    "id": 384,
+                    "id": 470,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 383,
-                      "name": "_address",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 371,
-                      "src": "688:8:2",
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 468,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 676,
+                        "src": "719:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 469,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "719:10:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1781,19 +2541,19 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "680:17:2",
+                    "src": "711:19:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Review_$337_storage",
+                      "typeIdentifier": "t_struct$_Review_$424_storage",
                       "typeString": "struct ConsultantReviewContract.Review storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "656:41:2"
+                  "src": "687:43:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 390,
+                    "id": 476,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1802,26 +2562,26 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 386,
+                        "id": 472,
                         "name": "review",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 381,
-                        "src": "708:6:2",
+                        "referencedDeclaration": 466,
+                        "src": "741:6:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review storage pointer"
                         }
                       },
-                      "id": 388,
+                      "id": 474,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "rating",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 332,
-                      "src": "708:13:2",
+                      "referencedDeclaration": 417,
+                      "src": "741:13:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -1831,31 +2591,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 389,
+                      "id": 475,
                       "name": "_rating",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 373,
-                      "src": "724:7:2",
+                      "referencedDeclaration": 458,
+                      "src": "757:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "708:23:2",
+                    "src": "741:23:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 391,
+                  "id": 477,
                   "nodeType": "ExpressionStatement",
-                  "src": "708:23:2"
+                  "src": "741:23:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 396,
+                    "id": 482,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1864,26 +2624,26 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 392,
+                        "id": 478,
                         "name": "review",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 381,
-                        "src": "741:6:2",
+                        "referencedDeclaration": 466,
+                        "src": "774:6:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review storage pointer"
                         }
                       },
-                      "id": 394,
+                      "id": 480,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "comment",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 334,
-                      "src": "741:14:2",
+                      "referencedDeclaration": 419,
+                      "src": "774:14:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
                         "typeString": "string storage ref"
@@ -1893,31 +2653,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 395,
+                      "id": 481,
                       "name": "_comment",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 375,
-                      "src": "758:8:2",
+                      "referencedDeclaration": 460,
+                      "src": "791:8:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
                         "typeString": "string memory"
                       }
                     },
-                    "src": "741:25:2",
+                    "src": "774:25:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 397,
+                  "id": 483,
                   "nodeType": "ExpressionStatement",
-                  "src": "741:25:2"
+                  "src": "774:25:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 402,
+                    "id": 488,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1926,26 +2686,26 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 398,
+                        "id": 484,
                         "name": "review",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 381,
-                        "src": "776:6:2",
+                        "referencedDeclaration": 466,
+                        "src": "809:6:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review storage pointer"
                         }
                       },
-                      "id": 400,
+                      "id": 486,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
-                      "memberName": "clientAccount",
+                      "memberName": "consultantAccount",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 336,
-                      "src": "776:20:2",
+                      "referencedDeclaration": 423,
+                      "src": "809:24:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1955,26 +2715,104 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 401,
-                      "name": "_clientAccount",
+                      "id": 487,
+                      "name": "_consultantAccount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 377,
-                      "src": "799:14:2",
+                      "referencedDeclaration": 462,
+                      "src": "836:18:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "776:37:2",
+                    "src": "809:45:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 403,
+                  "id": 489,
                   "nodeType": "ExpressionStatement",
-                  "src": "776:37:2"
+                  "src": "809:45:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 495,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 490,
+                        "name": "review",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 466,
+                        "src": "864:6:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
+                          "typeString": "struct ConsultantReviewContract.Review storage pointer"
+                        }
+                      },
+                      "id": 492,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "clientAccount",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 421,
+                      "src": "864:20:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 493,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 676,
+                        "src": "887:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 494,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "887:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "864:33:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 496,
+                  "nodeType": "ExpressionStatement",
+                  "src": "864:33:2"
                 },
                 {
                   "expression": {
@@ -1982,14 +2820,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 407,
+                        "id": 500,
                         "name": "review",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 381,
-                        "src": "842:6:2",
+                        "referencedDeclaration": 466,
+                        "src": "926:6:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review storage pointer"
                         }
                       }
@@ -1997,24 +2835,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Review_$337_storage_ptr",
+                          "typeIdentifier": "t_struct$_Review_$424_storage_ptr",
                           "typeString": "struct ConsultantReviewContract.Review storage pointer"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 404,
+                        "id": 497,
                         "name": "reviewsArray",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 347,
-                        "src": "824:12:2",
+                        "referencedDeclaration": 434,
+                        "src": "908:12:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Review_$337_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
                           "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
                         }
                       },
-                      "id": 406,
+                      "id": 499,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2022,13 +2860,13 @@
                       "memberName": "push",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "824:17:2",
+                      "src": "908:17:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Review_$337_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Review_$424_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct ConsultantReviewContract.Review storage ref) returns (uint256)"
                       }
                     },
-                    "id": 408,
+                    "id": 501,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2036,20 +2874,106 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "824:25:2",
+                    "src": "908:25:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 409,
+                  "id": 502,
                   "nodeType": "ExpressionStatement",
-                  "src": "824:25:2"
+                  "src": "908:25:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 506,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 676,
+                          "src": "963:3:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 507,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "963:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 503,
+                        "name": "clientAccounts",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 431,
+                        "src": "943:14:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                          "typeString": "address[] storage ref"
+                        }
+                      },
+                      "id": 505,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "943:19:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_address_$returns$_t_uint256_$",
+                        "typeString": "function (address) returns (uint256)"
+                      }
+                    },
+                    "id": 508,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "943:31:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 509,
+                  "nodeType": "ExpressionStatement",
+                  "src": "943:31:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 411,
+            "id": 511,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2057,42 +2981,16 @@
             "name": "setReview",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 378,
+              "id": 463,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 371,
-                  "name": "_address",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 411,
-                  "src": "566:16:2",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 370,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "566:7:2",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 373,
+                  "id": 458,
                   "name": "_rating",
                   "nodeType": "VariableDeclaration",
-                  "scope": 411,
-                  "src": "583:12:2",
+                  "scope": 511,
+                  "src": "610:12:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2100,10 +2998,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 372,
+                    "id": 457,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "583:4:2",
+                    "src": "610:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2114,11 +3012,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 375,
+                  "id": 460,
                   "name": "_comment",
                   "nodeType": "VariableDeclaration",
-                  "scope": 411,
-                  "src": "597:15:2",
+                  "scope": 511,
+                  "src": "624:15:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2126,10 +3024,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 374,
+                    "id": 459,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "597:6:2",
+                    "src": "624:6:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -2140,11 +3038,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 377,
-                  "name": "_clientAccount",
+                  "id": 462,
+                  "name": "_consultantAccount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 411,
-                  "src": "614:22:2",
+                  "scope": 511,
+                  "src": "641:26:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2152,10 +3050,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 376,
+                    "id": 461,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "614:7:2",
+                    "src": "641:7:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -2165,90 +3063,322 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "565:72:2"
+              "src": "609:59:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 379,
+              "id": 464,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "645:0:2"
+              "src": "676:0:2"
             },
-            "scope": 421,
-            "src": "547:310:2",
+            "scope": 560,
+            "src": "591:391:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 419,
+              "id": 540,
               "nodeType": "Block",
-              "src": "913:44:2",
+              "src": "1207:147:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "expression": {
-                      "argumentTypes": null,
-                      "id": 416,
-                      "name": "reviewsArray",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 347,
-                      "src": "931:12:2",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_Review_$337_storage_$dyn_storage",
-                        "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 522,
+                            "name": "reviewsArray",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 434,
+                            "src": "1233:12:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
+                              "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                            }
+                          },
+                          "id": 524,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 523,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1246:1:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1233:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Review_$424_storage",
+                            "typeString": "struct ConsultantReviewContract.Review storage ref"
+                          }
+                        },
+                        "id": 525,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "rating",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 417,
+                        "src": "1233:22:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 526,
+                            "name": "reviewsArray",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 434,
+                            "src": "1257:12:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
+                              "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                            }
+                          },
+                          "id": 528,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 527,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1270:1:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1257:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Review_$424_storage",
+                            "typeString": "struct ConsultantReviewContract.Review storage ref"
+                          }
+                        },
+                        "id": 529,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "comment",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 419,
+                        "src": "1257:23:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 530,
+                            "name": "reviewsArray",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 434,
+                            "src": "1282:12:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
+                              "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                            }
+                          },
+                          "id": 532,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 531,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1295:1:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1282:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Review_$424_storage",
+                            "typeString": "struct ConsultantReviewContract.Review storage ref"
+                          }
+                        },
+                        "id": 533,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "clientAccount",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 421,
+                        "src": "1282:29:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 534,
+                            "name": "reviewsArray",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 434,
+                            "src": "1313:12:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
+                              "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                            }
+                          },
+                          "id": 536,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 535,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1326:1:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1313:15:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Review_$424_storage",
+                            "typeString": "struct ConsultantReviewContract.Review storage ref"
+                          }
+                        },
+                        "id": 537,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "consultantAccount",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 423,
+                        "src": "1313:33:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
                       }
-                    },
-                    "id": 417,
+                    ],
+                    "id": 538,
                     "isConstant": false,
-                    "isLValue": true,
+                    "isInlineArray": false,
+                    "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
-                    "memberName": "length",
-                    "nodeType": "MemberAccess",
-                    "referencedDeclaration": null,
-                    "src": "931:19:2",
+                    "nodeType": "TupleExpression",
+                    "src": "1232:115:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_tuple$_t_uint256_$_t_string_storage_$_t_address_$_t_address_$",
+                      "typeString": "tuple(uint256,string storage ref,address,address)"
                     }
                   },
-                  "functionReturnParameters": 415,
-                  "id": 418,
+                  "functionReturnParameters": 521,
+                  "id": 539,
                   "nodeType": "Return",
-                  "src": "924:26:2"
+                  "src": "1226:121:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 420,
+            "id": 541,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
             "modifiers": [],
-            "name": "totalReviews",
+            "name": "getReview",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 412,
+              "id": 512,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "884:2:2"
+              "src": "1153:2:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 415,
+              "id": 521,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 414,
+                  "id": 514,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 420,
-                  "src": "908:4:2",
+                  "scope": 541,
+                  "src": "1176:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2256,10 +3386,185 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 413,
+                    "id": 513,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "908:4:2",
+                    "src": "1176:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 516,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 541,
+                  "src": "1182:6:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 515,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1182:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 518,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 541,
+                  "src": "1190:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 517,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1190:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 520,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 541,
+                  "src": "1199:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 519,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1199:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1175:32:2"
+            },
+            "scope": 560,
+            "src": "1135:219:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 549,
+              "nodeType": "Block",
+              "src": "1410:44:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 546,
+                      "name": "reviewsArray",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 434,
+                      "src": "1428:12:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_Review_$424_storage_$dyn_storage",
+                        "typeString": "struct ConsultantReviewContract.Review storage ref[] storage ref"
+                      }
+                    },
+                    "id": 547,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "1428:19:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 545,
+                  "id": 548,
+                  "nodeType": "Return",
+                  "src": "1421:26:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 550,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "totalReviews",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 542,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1381:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 545,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 544,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 550,
+                  "src": "1405:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 543,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1405:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2269,20 +3574,111 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "907:6:2"
+              "src": "1404:6:2"
             },
-            "scope": 421,
-            "src": "863:94:2",
+            "scope": 560,
+            "src": "1360:94:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 558,
+              "nodeType": "Block",
+              "src": "1520:40:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 556,
+                    "name": "clientAccounts",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 431,
+                    "src": "1538:14:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                      "typeString": "address[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 555,
+                  "id": 557,
+                  "nodeType": "Return",
+                  "src": "1531:21:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 559,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getClientAccounts",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 551,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1486:2:2"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 555,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 554,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 559,
+                  "src": "1510:9:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 552,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1510:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 553,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1510:9:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1509:11:2"
+            },
+            "scope": 560,
+            "src": "1460:100:2",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 422,
-        "src": "27:932:2"
+        "scope": 561,
+        "src": "27:1535:2"
       }
     ],
-    "src": "0:1168:2"
+    "src": "0:1771:2"
   },
   "compiler": {
     "name": "solc",
@@ -2293,9 +3689,9 @@
       "events": {},
       "links": {},
       "address": "0x5e48aab8a867a8250bb41506069896707336febd",
-      "transactionHash": "0x3e61dd79fdf501af9189c6933958336b152b25a697c2710fe9d27e781974e23a"
+      "transactionHash": "0x79a769ba869cbadb4b0f25979b4aae7705f6c6fcb26279039e42606c0d942b0a"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-05T06:13:19.654Z"
+  "updatedAt": "2018-11-05T12:16:55.774Z"
 }

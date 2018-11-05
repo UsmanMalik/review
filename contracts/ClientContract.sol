@@ -72,18 +72,37 @@ contract ClientContract is Owned{
 	}
 
 
-	function getTestNumberOnReview(address _contractAddr) returns(uint){
+    function getTestNumberOnReview(address _contractAddr) public view returns(uint){
 
-		ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
-		return crc.getTestNumber();
+        ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
+        uint getNumber = crc.getTestNumber();
+        return getNumber;
 
-	}
+    }
+
+    // Send client address explicity in the function
+    function setConsultantReview(address _contractAddr, uint _rating, string _comment, address _consultantAccount) public{
+        ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
+        crc.setReview(_rating, _comment, _consultantAccount);
+    }
+
+    function getConsultantReview(address _contractAddr) public view returns(uint, string, address, address){
+
+        ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
+        return crc.getReview();
+
+    }
 
 }
 
 
 contract ConsultantReviewContract{
 	
-	function setTestNumber(uint _testNumber);
-	function getTestNumber() returns(uint);
+    function getTestNumber() public view returns(uint);
+    function getReview() public view returns(uint, string, address, address);
+    function setTestNumber(uint _testNumber);
+    function setReview(uint _rating, string _comment, address _consultantAccount);
+    function totalReviews() returns (uint);
+    function getClientAccounts() returns (address[]);
+
 }
