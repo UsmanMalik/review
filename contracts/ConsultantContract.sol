@@ -50,4 +50,27 @@ contract ConsultantContract is Owned{
         return consultantAccounts.length;
     }
 
+    // Send client address explicity in the function
+    function setClientReview(address _contractAddr, uint _rating, string _comment, address _consultantAccount, address _clientAccount) public{
+        ClientReviewContract crc = ClientReviewContract(_contractAddr);
+        crc.setReview(_rating, _comment, _consultantAccount, _clientAccount);
+    }
+
+    function getConsultantReview(address _contractAddr) public view returns(uint, string, address, address){
+
+        ClientReviewContract crc = ClientReviewContract(_contractAddr);
+        return crc.getReview();
+
+    }    
+
+}
+
+
+contract ClientReviewContract{
+	
+    function getReview() public view returns(uint, string, address, address);
+    function setReview(uint _rating, string _comment, address _consultantAccount, address _clientAccount) public;
+    function totalReviews() public returns (uint);
+    function getConsultantsAccounts() public returns (address[]);
+
 }
