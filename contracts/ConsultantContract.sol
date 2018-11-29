@@ -56,7 +56,7 @@ contract ConsultantContract is Owned{
         crc.setReview(_rating, _comment, _consultantAccount, _clientAccount);
     }
 
-    function getConsultantReview(address _contractAddr) public view returns(uint, string, address, address){
+    function getClientReview(address _contractAddr) public view returns(uint, string, address, address){
 
         ClientReviewContract crc = ClientReviewContract(_contractAddr);
         return crc.getReview();
