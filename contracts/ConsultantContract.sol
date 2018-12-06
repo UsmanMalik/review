@@ -51,7 +51,7 @@ contract ConsultantContract is Owned{
     }
 
     // Send client address explicity in the function
-    function setClientReview(address _contractAddr, uint _rating, string _comment, address _consultantAccount, address _clientAccount) public{
+    function setClientReview(address _contractAddr, uint _rating, string _comment, address _clientAccount,address _consultantAccount) public{
         ClientReviewContract crc = ClientReviewContract(_contractAddr);
         crc.setReview(_rating, _comment, _consultantAccount, _clientAccount);
     }
