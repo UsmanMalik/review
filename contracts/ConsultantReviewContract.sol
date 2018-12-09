@@ -89,7 +89,7 @@ contract ConsultantReviewContract{
     }
 
 
-    function getClientFirstReview(address _clientAccount) public view returns(uint, string){
+    function getClientFirstReviewNow(address _clientAccount) public view returns(uint, string){
         
         for(uint i = 0; i < reviewsArray.length; i++){
             if (reviewsArray[i].clientAccount == _clientAccount){

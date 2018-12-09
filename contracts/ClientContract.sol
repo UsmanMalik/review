@@ -100,7 +100,7 @@ contract ClientContract is Owned{
 
     // All the reviews by this client to his/her consultants
     // Check only authorized cleint can see the comments
-    function getConsultantsReviews(address _contractAddr, address _clientAccount) public returns(uint[], string[], address[]){
+    function getConsultantsReviews(address _contractAddr, address _clientAccount) public view returns(uint[], string[], address[]){
         
         ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
         return crc.getConsultantsReviews(_clientAccount);
@@ -108,17 +108,21 @@ contract ClientContract is Owned{
 
 
     // All reviews of a particular consultant by the client
-    function getConsultantReviews(address _contractAddr, address _consultantAccount, address _clientAccount) public returns(uint[], string[]){
+    function getConsultantReviews(address _contractAddr, address _consultantAccount, address _clientAccount) public view returns(uint[], string[]){
         ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
         return crc.getConsultantReviews(_clientAccount,_consultantAccount);
     }
 
-    function getClientFirstReview(address _contractAddr, address _clientAccount)public returns(uint, string){
+    function getClientFirstReview(address _contractAddr, address _clientAccount)public view returns(uint, string){
         ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
-        return crc.getClientFirstReview(_clientAccount);
+        return crc.getClientFirstReviewNow(_clientAccount);
     }
 
 }
+
+// Get consultant first review
+// change string to fixed sized bytes array
+
 
 
 contract ConsultantReviewContract{
@@ -129,8 +133,8 @@ contract ConsultantReviewContract{
     function setReview(uint _rating, string _comment, address _consultantAccount, address _clientAccount) public;
     function totalReviews() public returns (uint);
     function getClientAccounts() public returns (address[]);
-    function getConsultantsReviews(address _clientAccount) public returns(uint[], string[], address[]);
-    function getConsultantReviews(address _clientAccount, address _consultantAccount) public returns(uint[], string[]);
-    function getClientFirstReview(address _clientAccount) public returns(uint, string);
+    function getConsultantsReviews(address _clientAccount) public view returns(uint[], string[], address[]);
+    function getConsultantReviews(address _clientAccount, address _consultantAccount) public view returns(uint[], string[]);
+    function getClientFirstReviewNow(address _clientAccount) public view returns(uint, string);
 
 }
