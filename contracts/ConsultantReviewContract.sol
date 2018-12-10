@@ -106,7 +106,6 @@ contract ConsultantReviewContract{
 }
 
 
-
 /*
 	-- Just some comments
 

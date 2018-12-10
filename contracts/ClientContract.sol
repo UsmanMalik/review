@@ -25,6 +25,10 @@ contract ClientContract is Owned{
        address account
     );
 
+    event ClientAlreadyExistsEvent(
+        string message
+    );
+
     function clientExist(address _address) public view returns(bool){
         for (uint i = 0; i < clientAccounts.length; i++) {
             if (clientAccounts[i] == _address)
@@ -44,6 +48,8 @@ contract ClientContract is Owned{
 
     function setClient(address _address, string _firstName, string _lastName, string _company) public {
 
+        string storage messageToClient;
+
         if(clientDoesNotExist(_address)){
             Client storage client = clients[_address];
 
@@ -55,6 +61,9 @@ contract ClientContract is Owned{
             emit ClientEvent(_firstName, _lastName, _company, _address);
 
             clientAccounts.push(_address) -1;
+        }else{
+            messageToClient = "Client Already exists";
+            emit ClientAlreadyExistsEvent(messageToClient);
         }
     }
 
