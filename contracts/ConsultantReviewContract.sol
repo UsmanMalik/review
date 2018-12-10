@@ -1,5 +1,4 @@
 pragma solidity ^0.4.23;
-pragma experimental ABIEncoderV2;
 
 
 
@@ -9,7 +8,7 @@ contract ConsultantReviewContract{
 
     struct Review{
         uint rating;
-        string comment;
+        bytes32 comment;
         address clientAccount;
         address consultantAccount;
     }
@@ -23,7 +22,7 @@ contract ConsultantReviewContract{
     }
 
     // Do we need any check for setting the review, if so what it will be 
-    function setReview(uint _rating, string _comment, address _consultantAccount, address _clientAccount) public {
+    function setReview(uint _rating, bytes32 _comment, address _consultantAccount, address _clientAccount) public {
 
         Review storage review = reviews[_clientAccount];
 
@@ -42,7 +41,7 @@ contract ConsultantReviewContract{
     // 2) client with specific consultant review 
     // 3) All reviews
 
-    function getReview() public view returns(uint, string, address, address){
+    function getReview() public view returns(uint, bytes32, address, address){
         return(reviewsArray[0].rating, reviewsArray[0].comment, reviewsArray[0].clientAccount, reviewsArray[0].consultantAccount);
     }
 
@@ -54,18 +53,21 @@ contract ConsultantReviewContract{
         return clientAccounts;
     }
 
-    function getConsultantsReviews(address _clientAccount) public returns(uint[], string[], address[]){
+    function getConsultantsReviews(address _clientAccount) public returns(uint[], bytes32[20], address[]){
 
         uint[] _ratings;
-        string[] _comments;
+        bytes32[20] _comments;
         address[] _consultantAccounts;
 
 
         for (uint i = 0; i < reviewsArray.length; i++) {
+            uint counter = 0; 
             if (reviewsArray[i].clientAccount == _clientAccount){
                 _ratings.push(reviewsArray[i].rating);
-                _comments.push(reviewsArray[i].comment);
+                // _comments.push(reviewsArray[i].comment);
+                _comments[counter] = reviewsArray[i].comment;
                 _consultantAccounts.push(reviewsArray[i].consultantAccount);
+                counter++;
             }
         }
         return (_ratings, _comments, _consultantAccounts);
@@ -73,15 +75,17 @@ contract ConsultantReviewContract{
     }
 
 
-    function getConsultantReviews(address _clientAccount, address _consultantAccount) public returns(uint[], string[]){
+    function getConsultantReviews(address _clientAccount, address _consultantAccount) public returns(uint[], bytes32[20]){
 
         uint[] _ratings;
-        string[] _comments;
+        bytes32[20] _comments;
 
         for (uint i = 0; i < reviewsArray.length; i++) {
+            uint counter = 0; 
             if (reviewsArray[i].clientAccount == _clientAccount && reviewsArray[i].consultantAccount == _consultantAccount){
                 _ratings.push(reviewsArray[i].rating);
-                _comments.push(reviewsArray[i].comment);
+                _comments[counter] = reviewsArray[i].comment;
+                // _comments.push(reviewsArray[i].comment);
             }
         }
         return (_ratings, _comments);
@@ -89,7 +93,7 @@ contract ConsultantReviewContract{
     }
 
 
-    function getClientFirstReviewNow(address _clientAccount) public view returns(uint, string){
+    function getClientFirstReviewNow(address _clientAccount) public view returns(uint, bytes32){
         
         for(uint i = 0; i < reviewsArray.length; i++){
             if (reviewsArray[i].clientAccount == _clientAccount){

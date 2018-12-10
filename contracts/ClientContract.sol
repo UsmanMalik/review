@@ -1,4 +1,3 @@
-pragma experimental ABIEncoderV2;
 pragma solidity ^0.4.23;
 
 import "./Owned.sol";
@@ -18,6 +17,13 @@ contract ClientContract is Owned{
     constructor() public { //Default constructor
 
     }
+
+    event ClientEvent(
+       string firstName,
+       string lastName, // change string to bytes16
+       string company,
+       address account
+    );
 
     function clientExist(address _address) public view returns(bool){
         for (uint i = 0; i < clientAccounts.length; i++) {
@@ -46,6 +52,8 @@ contract ClientContract is Owned{
             client.company = _company;
             client.account = _address;
 
+            emit ClientEvent(_firstName, _lastName, _company, _address);
+
             clientAccounts.push(_address) -1;
         }
     }
@@ -66,24 +74,8 @@ contract ClientContract is Owned{
         return clientAccounts.length;
     }
 
-	// function setTestNumberOnReview(address _contractAddr, uint _number) returns(uint){
-
-	// 	ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
-	// 	crc.setTestNumber(_number);
-	// 	return crc.getTestNumber();
-	// }
-
-
-    // function getTestNumberOnReview(address _contractAddr) public view returns(uint){
-
-    //     ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
-    //     uint getNumber = crc.getTestNumber();
-    //     return getNumber;
-
-    // }
-
     // Send client address explicity in the function
-    function setConsultantReview(address _contractAddr, uint _rating, string _comment, address _consultantAccount, address _clientAccount) 
+    function setConsultantReview(address _contractAddr, uint _rating, bytes32 _comment, address _consultantAccount, address _clientAccount) 
     
     public{
 
@@ -91,7 +83,7 @@ contract ClientContract is Owned{
         crc.setReview(_rating, _comment, _consultantAccount,_clientAccount);
     }
 
-    function getConsultantReview(address _contractAddr) public view returns(uint, string, address, address){
+    function getConsultantReview(address _contractAddr) public view returns(uint, bytes32, address, address){
 
         ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
         return crc.getReview();
@@ -100,7 +92,7 @@ contract ClientContract is Owned{
 
     // All the reviews by this client to his/her consultants
     // Check only authorized cleint can see the comments
-    function getConsultantsReviews(address _contractAddr, address _clientAccount) public view returns(uint[], string[], address[]){
+    function getConsultantsReviews(address _contractAddr, address _clientAccount) public view returns(uint[], bytes32[20], address[]){
         
         ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
         return crc.getConsultantsReviews(_clientAccount);
@@ -108,12 +100,13 @@ contract ClientContract is Owned{
 
 
     // All reviews of a particular consultant by the client
-    function getConsultantReviews(address _contractAddr, address _consultantAccount, address _clientAccount) public view returns(uint[], string[]){
+    function getConsultantReviews(address _contractAddr, address _consultantAccount, address _clientAccount)   
+    public view returns(uint[], bytes32[20]){
         ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
         return crc.getConsultantReviews(_clientAccount,_consultantAccount);
     }
 
-    function getClientFirstReview(address _contractAddr, address _clientAccount)public view returns(uint, string){
+    function getClientFirstReview(address _contractAddr, address _clientAccount)public view returns(uint, bytes32){
         ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
         return crc.getClientFirstReviewNow(_clientAccount);
     }
@@ -128,13 +121,13 @@ contract ClientContract is Owned{
 contract ConsultantReviewContract{
 	
     // function getTestNumber() public view returns(uint);
-    function getReview() public view returns(uint, string, address, address);
+    function getReview() public view returns(uint, bytes32, address, address);
     // function setTestNumber(uint _testNumber);
-    function setReview(uint _rating, string _comment, address _consultantAccount, address _clientAccount) public;
+    function setReview(uint _rating, bytes32 _comment, address _consultantAccount, address _clientAccount) public;
     function totalReviews() public returns (uint);
     function getClientAccounts() public returns (address[]);
-    function getConsultantsReviews(address _clientAccount) public view returns(uint[], string[], address[]);
-    function getConsultantReviews(address _clientAccount, address _consultantAccount) public view returns(uint[], string[]);
-    function getClientFirstReviewNow(address _clientAccount) public view returns(uint, string);
+    function getConsultantsReviews(address _clientAccount) public view returns(uint[], bytes32[20], address[]);
+    function getConsultantReviews(address _clientAccount, address _consultantAccount) public view returns(uint[], bytes32[20]);
+    function getClientFirstReviewNow(address _clientAccount) public view returns(uint, bytes32);
 
 }
