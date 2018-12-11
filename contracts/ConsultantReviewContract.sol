@@ -21,10 +21,17 @@ contract ConsultantReviewContract{
 	// Basic constructor for the contract
     }
 
+    event ConsultantReviewEvent(
+        uint rating,
+        bytes32 comment,
+        address consultantAccount,
+        address clientAccount
+    );
+
     // Do we need any check for setting the review, if so what it will be 
     function setReview(uint _rating, bytes32 _comment, address _consultantAccount, address _clientAccount) public {
 
-        Review storage review = reviews[_clientAccount];
+        Review memory review = reviews[_clientAccount];
 
         review.rating = _rating;
         review.comment = _comment;
@@ -33,6 +40,8 @@ contract ConsultantReviewContract{
 
         reviewsArray.push(review);
         clientAccounts.push(_clientAccount);
+
+        emit ConsultantReviewEvent(_rating, _comment, _consultantAccount, _clientAccount);
 
     }
 

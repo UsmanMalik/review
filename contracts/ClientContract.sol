@@ -46,24 +46,21 @@ contract ClientContract is Owned{
 
     }
 
-    function setClient(address _address, string _firstName, string _lastName, string _company) public {
+    function setClient(string _firstName, string _lastName, string _company) public {
 
-        string storage messageToClient;
-
-        if(clientDoesNotExist(_address)){
-            Client storage client = clients[_address];
+        if(clientDoesNotExist(msg.sender) && (msg.sender != address(0))){
+            Client memory client = clients[msg.sender];
 
             client.firstName = _firstName;
             client.lastName = _lastName;
             client.company = _company;
-            client.account = _address;
+            client.account = msg.sender;
 
-            emit ClientEvent(_firstName, _lastName, _company, _address);
+            emit ClientEvent(_firstName, _lastName, _company, msg.sender);
 
-            clientAccounts.push(_address) -1;
+            clientAccounts.push(msg.sender) -1;
         }else{
-            messageToClient = "Client Already exists";
-            emit ClientAlreadyExistsEvent(messageToClient);
+            emit ClientAlreadyExistsEvent("Client Already exists");
         }
     }
 
@@ -73,9 +70,9 @@ contract ClientContract is Owned{
     }
 
 
-    function getClient(address _address) public view returns (string, string, string){
+    function getClient() public view returns (string, string, string){
 
-        return (clients[_address].firstName, clients[_address].lastName, clients[_address].company);
+        return (clients[msg.sender].firstName, clients[msg.sender].lastName, clients[msg.sender].company);
     }
 
     function countClients() public onlyOwner  view returns (uint){
@@ -84,12 +81,12 @@ contract ClientContract is Owned{
     }
 
     // Send client address explicity in the function
-    function setConsultantReview(address _contractAddr, uint _rating, bytes32 _comment, address _consultantAccount, address _clientAccount) 
+    function setConsultantReview(address _contractAddr, uint _rating, bytes32 _comment, address _consultantAccount) 
     
     public{
 
         ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
-        crc.setReview(_rating, _comment, _consultantAccount,_clientAccount);
+        crc.setReview(_rating, _comment, _consultantAccount, msg.sender);
     }
 
     function getConsultantReview(address _contractAddr) public view returns(uint, bytes32, address, address){
@@ -101,23 +98,23 @@ contract ClientContract is Owned{
 
     // All the reviews by this client to his/her consultants
     // Check only authorized cleint can see the comments
-    function getConsultantsReviews(address _contractAddr, address _clientAccount) public view returns(uint[], bytes32[20], address[]){
+    function getConsultantsReviews(address _contractAddr) public view returns(uint[], bytes32[20], address[]){
         
         ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
-        return crc.getConsultantsReviews(_clientAccount);
+        return crc.getConsultantsReviews(msg.sender);
     }
 
 
     // All reviews of a particular consultant by the client
-    function getConsultantReviews(address _contractAddr, address _consultantAccount, address _clientAccount)   
+    function getConsultantReviews(address _contractAddr, address _consultantAccount)   
     public view returns(uint[], bytes32[20]){
         ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
-        return crc.getConsultantReviews(_clientAccount,_consultantAccount);
+        return crc.getConsultantReviews(msg.sender,_consultantAccount);
     }
 
-    function getClientFirstReview(address _contractAddr, address _clientAccount)public view returns(uint, bytes32){
+    function getClientFirstReview(address _contractAddr)public view returns(uint, bytes32){
         ConsultantReviewContract crc = ConsultantReviewContract(_contractAddr);
-        return crc.getClientFirstReviewNow(_clientAccount);
+        return crc.getClientFirstReviewNow(msg.sender);
     }
 
 }
