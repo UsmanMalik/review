@@ -62,20 +62,21 @@ contract ConsultantReviewContract{
         return clientAccounts;
     }
 
-    function getConsultantsReviews(address _clientAccount) public returns(uint[], bytes32[20], address[]){
+    function getConsultantsReviews(address _clientAccount) public view returns(uint[], bytes32[20], address[]){
 
-        uint[] _ratings;
-        bytes32[20] _comments;
-        address[] _consultantAccounts;
+        uint[] memory _ratings;
+        bytes32[20] memory _comments;
+        address[] memory _consultantAccounts;
+        uint counter = 0; 
 
 
         for (uint i = 0; i < reviewsArray.length; i++) {
-            uint counter = 0; 
             if (reviewsArray[i].clientAccount == _clientAccount){
-                _ratings.push(reviewsArray[i].rating);
+                // _ratings.push(reviewsArray[i].rating);
+                _ratings[counter] = reviewsArray[i].rating;
                 // _comments.push(reviewsArray[i].comment);
                 _comments[counter] = reviewsArray[i].comment;
-                _consultantAccounts.push(reviewsArray[i].consultantAccount);
+                _consultantAccounts[counter] = reviewsArray[i].consultantAccount;
                 counter++;
             }
         }
@@ -84,15 +85,15 @@ contract ConsultantReviewContract{
     }
 
 
-    function getConsultantReviews(address _clientAccount, address _consultantAccount) public returns(uint[], bytes32[20]){
+    function getConsultantReviews(address _clientAccount, address _consultantAccount) public view returns(uint[], bytes32[20]){
 
-        uint[] _ratings;
-        bytes32[20] _comments;
+        uint[] memory _ratings;
+        bytes32[20] memory _comments;
+        uint counter = 0; 
 
         for (uint i = 0; i < reviewsArray.length; i++) {
-            uint counter = 0; 
             if (reviewsArray[i].clientAccount == _clientAccount && reviewsArray[i].consultantAccount == _consultantAccount){
-                _ratings.push(reviewsArray[i].rating);
+                _ratings[counter] = reviewsArray[i].rating;
                 _comments[counter] = reviewsArray[i].comment;
                 // _comments.push(reviewsArray[i].comment);
             }
