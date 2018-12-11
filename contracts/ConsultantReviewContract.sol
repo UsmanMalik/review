@@ -64,9 +64,9 @@ contract ConsultantReviewContract{
 
     function getConsultantsReviews(address _clientAccount) public view returns(uint[], bytes32[20], address[]){
 
-        uint[] memory _ratings;
+        uint[] memory _ratings = new uint[](10);
         bytes32[20] memory _comments;
-        address[] memory _consultantAccounts;
+        address[] memory _consultantAccounts = new address[](10);
         uint counter = 0; 
 
 
@@ -87,7 +87,7 @@ contract ConsultantReviewContract{
 
     function getConsultantReviews(address _clientAccount, address _consultantAccount) public view returns(uint[], bytes32[20]){
 
-        uint[] memory _ratings;
+        uint[] memory _ratings = new uint[](10);
         bytes32[20] memory _comments;
         uint counter = 0; 
 

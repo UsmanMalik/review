@@ -230,7 +230,7 @@
         "id": 559,
         "nodeType": "ImportDirective",
         "scope": 771,
-        "sourceUnit": 1236,
+        "sourceUnit": 1251,
         "src": "26:21:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -244,10 +244,10 @@
               "id": 560,
               "name": "Owned",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1235,
+              "referencedDeclaration": 1250,
               "src": "80:5:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Owned_$1235",
+                "typeIdentifier": "t_contract$_Owned_$1250",
                 "typeString": "contract Owned"
               }
             },
@@ -257,7 +257,7 @@
           }
         ],
         "contractDependencies": [
-          1235
+          1250
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -265,7 +265,7 @@
         "id": 736,
         "linearizedBaseContracts": [
           736,
-          1235
+          1250
         ],
         "name": "ConsultantContract",
         "nodeType": "ContractDefinition",
@@ -1611,7 +1611,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1215,
+                  "referencedDeclaration": 1230,
                   "src": "1177:9:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -2794,7 +2794,7 @@
         "id": 559,
         "nodeType": "ImportDirective",
         "scope": 771,
-        "sourceUnit": 1236,
+        "sourceUnit": 1251,
         "src": "26:21:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2808,10 +2808,10 @@
               "id": 560,
               "name": "Owned",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1235,
+              "referencedDeclaration": 1250,
               "src": "80:5:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Owned_$1235",
+                "typeIdentifier": "t_contract$_Owned_$1250",
                 "typeString": "contract Owned"
               }
             },
@@ -2821,7 +2821,7 @@
           }
         ],
         "contractDependencies": [
-          1235
+          1250
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -2829,7 +2829,7 @@
         "id": 736,
         "linearizedBaseContracts": [
           736,
-          1235
+          1250
         ],
         "name": "ConsultantContract",
         "nodeType": "ContractDefinition",
@@ -4175,7 +4175,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1215,
+                  "referencedDeclaration": 1230,
                   "src": "1177:9:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -5341,5 +5341,5 @@
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-12-11T16:05:03.982Z"
+  "updatedAt": "2018-12-11T20:44:31.975Z"
 }
