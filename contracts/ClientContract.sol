@@ -8,7 +8,7 @@ contract ClientContract is Owned{
         string firstName;
         string lastName; // change string to bytes16
         string company;
-        address account;
+        address account; // client account 
     }
 
     mapping (address => Client) clients;
@@ -49,7 +49,7 @@ contract ClientContract is Owned{
     function setClient(string _firstName, string _lastName, string _company) public {
 
         if(clientDoesNotExist(msg.sender) && (msg.sender != address(0))){
-            Client memory client = clients[msg.sender];
+            Client storage client = clients[msg.sender];
 
             client.firstName = _firstName;
             client.lastName = _lastName;
@@ -75,7 +75,7 @@ contract ClientContract is Owned{
         return (clients[msg.sender].firstName, clients[msg.sender].lastName, clients[msg.sender].company);
     }
 
-    function countClients() public onlyOwner  view returns (uint){
+    function countClients() public onlyOwner view returns (uint){
 
         return clientAccounts.length;
     }

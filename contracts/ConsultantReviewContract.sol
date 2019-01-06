@@ -17,7 +17,7 @@ contract ConsultantReviewContract{
     address[] public clientAccounts;
     Review[] public reviewsArray;
 
-    constructor(){
+    constructor() public{
 	// Basic constructor for the contract
     }
 
@@ -31,7 +31,7 @@ contract ConsultantReviewContract{
     // Do we need any check for setting the review, if so what it will be 
     function setReview(uint _rating, bytes32 _comment, address _consultantAccount, address _clientAccount) public {
 
-        Review memory review = reviews[_clientAccount];
+        Review storage review = reviews[_clientAccount];
 
         review.rating = _rating;
         review.comment = _comment;

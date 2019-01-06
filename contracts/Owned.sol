@@ -11,12 +11,12 @@ contract Owned{
     }
 
     modifier onlyOwner{
-        require(msg.sender == owner);
+        require(msg.sender == owner, "Only owner is authorized for this task.");
         _;
     }
 
     modifier exceptOwner{
-        require(msg.sender != owner);
+        require(msg.sender != owner, "You are owner and not allowed to perform this task.");
         _;
     }
 

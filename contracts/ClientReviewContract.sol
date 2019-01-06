@@ -15,7 +15,7 @@ contract ClientReviewContract{
     address[] public consultantAccounts;
     Review[] public reviewsArray;
 
-    constructor(){
+    constructor() public{
 	// Basic constructor for the contract
     }
 
