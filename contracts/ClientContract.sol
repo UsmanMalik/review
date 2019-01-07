@@ -56,7 +56,7 @@ contract ClientContract is Owned{
             client.company = _company;
             client.account = msg.sender;
 
-            emit ClientEvent(_firstName, _lastName, _company, msg.sender);
+            emit ClientEvent(client.firstName, client.lastName, _company, client.account);
 
             clientAccounts.push(msg.sender) -1;
         }else{
