@@ -95,6 +95,7 @@ contract ConsultantReviewContract{
             if (reviewsArray[i].clientAccount == _clientAccount && reviewsArray[i].consultantAccount == _consultantAccount){
                 _ratings[counter] = reviewsArray[i].rating;
                 _comments[counter] = reviewsArray[i].comment;
+                counter++;
                 // _comments.push(reviewsArray[i].comment);
             }
         }
