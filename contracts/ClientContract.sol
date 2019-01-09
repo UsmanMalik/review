@@ -43,7 +43,6 @@ contract ClientContract is Owned{
                return false;
         }
         return true;
-
     }
 
     function setClient(string _firstName, string _lastName, string _company) public {

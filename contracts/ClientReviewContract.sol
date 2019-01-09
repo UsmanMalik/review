@@ -19,7 +19,14 @@ contract ClientReviewContract{
 	// Basic constructor for the contract
     }
 
-    function setReview(uint _rating, string _comment, address _consultantAccount, address _clientAccount) public {
+    event ClientReviewEvent(
+        uint rating,
+        bytes32 comment,
+        address consultantAccount,
+        address clientAccount
+    );
+
+    function setReview(uint _rating, string _comment, address _clientAccount, address _consultantAccount) public {
 
         Review storage review = reviews[_consultantAccount];
 

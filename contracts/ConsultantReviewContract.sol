@@ -84,7 +84,7 @@ contract ConsultantReviewContract{
 
     }
 
-
+    // We might need event on this side aswell, will take a look
     function getConsultantReviews(address _clientAccount, address _consultantAccount) public view returns(uint[], bytes32[20]){
 
         uint[] memory _ratings = new uint[](10);
