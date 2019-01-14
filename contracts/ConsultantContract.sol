@@ -85,13 +85,16 @@ contract ConsultantContract is Owned{
     }
 
     // Send client address explicity in the function
-    function setClientReview(address _contractAddr, uint _rating, string _comment, address _clientAccount) public{
+    function setClientReview(address _contractAddr, uint _rating, string _comment, address _clientAccount) 
+    
+    public{
         ClientReviewContract crc = ClientReviewContract(_contractAddr);
         crc.setReview(_rating, _comment, _clientAccount, msg.sender);
     }
     //****** Make sure to change the Client Review contarct aswell
     
-     ///////
+     /////// ConsultantContract.deployed().then(function(contractInstance) { contractInstance.setClientReview('0x38563ac0aabb090b306d9db879c4df7317fa98a8',7,"meow",web3.eth.accounts[1],{from: web3.eth.accounts[2]}).then(function(v) {console.log(v)})})
+
 
     function getClientReview(address _contractAddr) public view returns(uint, string, address, address){
 
@@ -137,7 +140,7 @@ contract ClientReviewContract{
 
     function getClientsReviews(address _consultantAccount) public view returns(uint[], bytes32[20], address[]);
     function getClientReviews(address _consultantAccount, address _clientAccount) public view returns(uint[], bytes32[20]);
-    function getClientFirstReviewNow(address _consultantAccount) public view returns(uint, bytes32);
+    function getConsultantFirstReviewNow(address _consultantAccount) public view returns(uint, bytes32);
 
 
 }
